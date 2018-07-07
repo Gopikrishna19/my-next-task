@@ -29,6 +29,7 @@
     "build": "webpack --mode production",
     "clean": "rimraf public",
     "deploy": "npm run clean && npm run build && firebase deploy",
+    "lint": "eslint . --ignore-path .gitignore",
     "start": "webpack-dev-server --mode development"
   },
   "author": "Gopikrishna Sathyamurthy",
