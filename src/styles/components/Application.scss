@@ -1,0 +1,27 @@
+@import "../anchors";
+@import "../buttons";
+@import "../variables";
+
+.application {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.logoutButton {
+  composes: buttonNoFootprint;
+}
+
+.menu {
+  color: $primary-foreground;
+  list-style: none;
+  padding: 0;
+}
+
+.menuLink {
+  composes: anchorReset;
+  composes: buttonOutlineBody;
+  display: block;
+  margin-bottom: $gutter;
+  text-align: center;
+}

@@ -11,10 +11,10 @@
 }
 
 .buttonOutlineBody {
+  composes: button;
   background: none;
   border: 1px solid $secondary-background;
   color: $primary-foreground;
-  composes: button;
 
   &:hover {
     background-color: $secondary-background;
