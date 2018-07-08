@@ -6,6 +6,9 @@
     "@inlinedb/inlinedb",
     "plugin:react/recommended"
   ],
+  "globals": {
+    "build": true
+  },
   "plugins": [
     "react"
   ],

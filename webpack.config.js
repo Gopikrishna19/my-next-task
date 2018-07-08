@@ -1,6 +1,7 @@
-const path = require('path');
-const HTMLWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const HTMLWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
+const webpack = require('webpack');
 
 module.exports = (env, {mode}) => {
   const config = {
@@ -35,7 +36,10 @@ module.exports = (env, {mode}) => {
       }),
       new CopyWebpackPlugin([
         {from: 'src/static'}
-      ])
+      ]),
+      new webpack.DefinePlugin({
+        'build.mode': JSON.stringify(mode)
+      })
     ]
   };
 
