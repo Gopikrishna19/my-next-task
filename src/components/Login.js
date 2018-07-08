@@ -1,6 +1,7 @@
 import React from 'react';
 import {auth} from '../firebase';
-import styles from '../styles/Login.scss';
+import styles from '../styles/components/Login.scss';
+import {AppShell} from './AppShell';
 
 const handleClick = () => {
   const authProvider = new auth.GoogleAuthProvider();
@@ -11,9 +12,12 @@ const handleClick = () => {
 };
 
 export const Login = () =>
-  <div className={styles.login}>
+  <AppShell
+    className={styles.login}
+    elevated={false}
+  >
     <button
       className={styles.loginButton}
       onClick={handleClick}>Login
     </button>
-  </div>;
+  </AppShell>;
