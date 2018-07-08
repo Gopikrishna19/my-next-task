@@ -11,7 +11,7 @@ const files = [
   'images/icon-384x384.png',
   'images/icon-512x512.png',
   'favicon.ico',
-  // 'index.css',
+  'index.css',
   'index.html'
 ].concat(
   Array.from({length: chunkCount})

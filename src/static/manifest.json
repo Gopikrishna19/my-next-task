@@ -3,7 +3,7 @@
   "short_name": "My Next Task",
   "theme_color": "#80deea",
   "background_color": "#80deea",
-  "display": "fullscreen",
+  "display": "standalone",
   "orientation": "portrait",
   "Scope": "/",
   "start_url": "/",
