@@ -1,6 +1,7 @@
 import React from 'react';
 import {render} from 'react-dom';
 import {auth} from './firebase';
+import './progressive';
 
 const renderComponent = Component => render(<Component/>, document.getElementById('app'));
 
