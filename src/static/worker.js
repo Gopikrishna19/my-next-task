@@ -1,4 +1,4 @@
-const MY_NEXT_TASK_CACHE = 'my.next.tasks.0.0.1';
+const MY_NEXT_TASK_CACHE = 'my.next.tasks.0.1.0';
 const files = [
   './',
   'images/icon-72x72.png',
