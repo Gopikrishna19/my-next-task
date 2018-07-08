@@ -25,8 +25,9 @@ module.exports = (env, {mode}) => {
             {
               loader: 'css-loader',
               options: {
+                importLoaders: 1,
                 localIdentName: '[local]--[hash:base64:5]',
-                modules: true
+                modules: true,
               }
             },
             'sass-loader'
