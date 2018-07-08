@@ -1,5 +1,6 @@
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
+const CSSExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 const webpack = require('webpack');
 
@@ -10,8 +11,21 @@ module.exports = (env, {mode}) => {
       rules: [
         {
           exclude: /node_modules/,
-          loader: 'babel-loader',
-          test: /\.js$/
+          test: /\.js$/,
+          use: 'babel-loader'
+        },
+        {
+          test: /\.scss$/,
+          use: [
+            CSSExtractPlugin.loader,
+            {
+              loader: 'css-loader',
+              options: {
+                modules: true
+              }
+            },
+            'sass-loader'
+          ]
         }
       ]
     },
@@ -39,6 +53,9 @@ module.exports = (env, {mode}) => {
       ]),
       new webpack.DefinePlugin({
         'build.mode': JSON.stringify(mode)
+      }),
+      new CSSExtractPlugin({
+        filename: '[id].index.css'
       })
     ]
   };
