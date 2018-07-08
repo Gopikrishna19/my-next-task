@@ -1,10 +1,13 @@
 import React from 'react';
 import {render} from 'react-dom';
 import {auth} from './firebase';
+import progressive from './progressive';
 
 if (build.mode === 'production') {
-  require('./progressive');
+  progressive.registerWorker();
 }
+
+progressive.removeLoader();
 
 const renderComponent = Component => render(<Component/>, document.getElementById('app'));
 

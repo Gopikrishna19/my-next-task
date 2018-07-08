@@ -7,8 +7,73 @@
     <link rel="manifest" href="manifest.json">
     <link rel="icon" href="favicon.ico">
     <title>My Next Task</title>
+    <style>
+      html,
+      body {
+        background-color: #80deea;
+        font-family: sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
   </head>
   <body>
+    <div id="loader">
+      <style>
+        @keyframes spin {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+
+        :root {
+          --foreground: #006064;
+          --border-fade: rgba(0, 96, 100, .1);
+          --border-dark: var(--foreground);
+        }
+
+        #loader {
+          align-items: center;
+          color: var(--foreground);
+          background-color: #80deea;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          height: 100vh;
+          position: fixed;
+          width: 100vw;
+        }
+
+        .spinner {
+          animation: spin 1s infinite linear;
+          border: 5px solid var(--border-fade);
+          border-radius: 50%;
+          border-right-color: var(--border-dark);
+          height: 50px;
+          margin-bottom: 25px;
+          width: 50px;
+        }
+
+        .connectivity-message.hide {
+          opacity: 0;
+        }
+      </style>
+      <i class="spinner"></i>
+      <p class="connectivity-message hide">
+        Please check your connectivity
+      </p>
+      <script>
+        setTimeout(() => {
+          const message = document.querySelector('.offline-message');
+          if (message) {
+            message.classList.remove('hide');
+          }
+        }, 5000);
+      </script>
+    </div>
     <div id="app"></div>
   </body>
 </html>

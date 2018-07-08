@@ -1,3 +1,6 @@
 import {registerWorker} from './register';
 
-registerWorker();
+export default {
+  registerWorker,
+  removeLoader: () => document.getElementById('loader').remove()
+};
