@@ -4,7 +4,11 @@ const CSSExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 const webpack = require('webpack');
 
+const DEVELOPMENT = 'development';
+
 module.exports = (env, {mode}) => {
+  const textLoader = mode === DEVELOPMENT ? 'style-loader' : CSSExtractPlugin.loader;
+
   const config = {
     entry: './src',
     module: {
@@ -17,10 +21,11 @@ module.exports = (env, {mode}) => {
         {
           test: /\.scss$/,
           use: [
-            CSSExtractPlugin.loader,
+            textLoader,
             {
               loader: 'css-loader',
               options: {
+                localIdentName: '[local]--[hash:base64:5]',
                 modules: true
               }
             },
@@ -60,12 +65,16 @@ module.exports = (env, {mode}) => {
     ]
   };
 
-  if (mode === 'development') {
+  if (mode === DEVELOPMENT) {
     config.devServer = {
+      hot: true,
       port: 8080,
       stats: 'minimal'
     };
     config.devtool = 'source-map';
+    config.plugins.push(
+      new webpack.HotModuleReplacementPlugin()
+    );
   }
 
   return config;

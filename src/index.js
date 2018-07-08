@@ -3,13 +3,20 @@ import {render} from 'react-dom';
 import {auth} from './firebase';
 import progressive from './progressive';
 
+const host = document.getElementById('app');
+let renderComponent;
+
 if (build.mode === 'production') {
   progressive.registerWorker();
+
+  renderComponent = Component => render(<Component/>, host);
+} else {
+  const {HotApp} = require('./HotApp');
+
+  renderComponent = Component => render(<HotApp component={Component}/>, host);
 }
 
 progressive.removeLoader();
-
-const renderComponent = Component => render(<Component/>, document.getElementById('app'));
 
 const getComponent = function (user) {
   let component;
