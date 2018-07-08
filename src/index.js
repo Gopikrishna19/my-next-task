@@ -1,17 +1,21 @@
 import React from 'react';
 import {render} from 'react-dom';
-import {auth} from './repository/firebase';
+import {auth} from './firebase';
 
-auth().onAuthStateChanged(async user => {
+const renderComponent = Component => render(<Component/>, document.getElementById('app'));
+
+const getComponent = function (user) {
+  let component;
+
   if (user && user.emailVerified) {
-    const {App} = await import('./App');
-
-    render(<App/>, document.getElementById('app'));
+    component = import('./components/Application')
+      .then(module => module.Application);
   } else {
-    const authProvider = new auth.GoogleAuthProvider();
-
-    document.getElementById('app').innerHTML = 'Authenticating...';
-
-    auth().signInWithPopup(authProvider);
+    component = import('./components/Login')
+      .then(module => module.Login);
   }
-});
+
+  return component;
+};
+
+auth().onAuthStateChanged(user => getComponent(user).then(renderComponent));
