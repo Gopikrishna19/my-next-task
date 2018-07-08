@@ -1,0 +1,12 @@
+@import "variables";
+
+.icon {
+  height: 24px;
+  margin: 16px;
+  width: 24px;
+}
+
+.iconWhite {
+  composes: icon;
+  fill: $primary-foreground;
+}

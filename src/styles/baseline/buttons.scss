@@ -16,6 +16,12 @@
   padding: 10px 20px;
 }
 
+.buttonNoFootprint {
+  background: none;
+  border: none;
+  display: flex;
+}
+
 .buttonOutlineBody {
   @include button($primary-foreground);
 }
