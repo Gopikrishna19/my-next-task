@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../../styles/baseline/icon.scss';
+import styles from '../../styles/icons.scss';
 
 export const Back = () =>
   <svg className={styles.iconWhite} viewBox="0 0 24 24">

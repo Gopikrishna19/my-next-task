@@ -1,0 +1,9 @@
+:global(#app) {
+  display: grid;
+  height: 100vh;
+  position: absolute;
+  width: 100vw;
+
+  grid-template-rows: 56px 1fr;
+  grid-template-areas: 'header' 'content';
+}

@@ -1,0 +1,23 @@
+@import "variables";
+
+.button {
+  padding: 10px 20px;
+}
+
+.buttonNoFootprint {
+  background: none;
+  border: none;
+  display: flex;
+}
+
+.buttonOutlineBody {
+  background: none;
+  border: 1px solid $secondary-background;
+  color: $primary-foreground;
+  composes: button;
+
+  &:hover {
+    background-color: $secondary-background;
+    color: $secondary-foreground;
+  }
+}

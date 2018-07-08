@@ -1,14 +1,15 @@
-@import "baseline/buttons";
-@import "baseline/variables";
+@import "../buttons";
+@import "../variables";
 
 .header {
+  grid-area: header;
   align-items: center;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   color: $primary-foreground;
   display: flex;
-  height: 56px;
-  position: fixed;
-  width: 100vw;
+}
+
+.header.elevated {
+  box-shadow: $primary-background-shadow;
 }
 
 .title {
@@ -19,4 +20,10 @@
 
 .backButton {
   composes: buttonNoFootprint;
+}
+
+.content {
+  grid-area: content;
+  padding: 0 $gutter;
+  overflow: auto;
 }

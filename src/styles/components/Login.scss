@@ -1,12 +1,9 @@
-@import "baseline/buttons";
-@import "baseline/page";
+@import "../buttons";
 
 .login {
-  composes: page;
   align-items: center;
   display: flex;
   justify-content: center;
-  height: 100vh;
 }
 
 .loginButton {
