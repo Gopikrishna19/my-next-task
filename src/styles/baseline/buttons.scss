@@ -1,0 +1,19 @@
+@mixin button($color) {
+  composes: button;
+  border-color: $color;
+  color: $color;
+
+  &:hover {
+    background-color: $color;
+  }
+}
+
+.button {
+  background: none;
+  border: 1px solid;
+  padding: 10px 20px;
+}
+
+.white-button {
+  @include button(white);
+}
