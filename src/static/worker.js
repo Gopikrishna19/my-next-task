@@ -1,5 +1,4 @@
-const MY_NEXT_TASK_CACHE = 'my.next.tasks.0.0.0';
-const chunkCount = 4;
+const MY_NEXT_TASK_CACHE = 'my.next.tasks.0.0.1';
 const files = [
   './',
   'images/icon-72x72.png',
@@ -13,10 +12,7 @@ const files = [
   'favicon.ico',
   'index.css',
   'index.html'
-].concat(
-  Array.from({length: chunkCount})
-    .map((_, index) => `${index}.index.js`)
-);
+];
 
 const getCache = () => MY_NEXT_TASK_CACHE;
 
