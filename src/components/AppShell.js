@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import {Link} from 'react-router-dom';
 import styles from '../styles/components/AppShell.scss';
 import {conditionalRequire} from '../utils/props';
 import {Back} from './icons/Back';
@@ -10,12 +11,12 @@ export const AppShell = props =>
     <header className={`${styles.header} ${props.elevated ? styles.elevated : ''}`}>
       {
         props.hasBackButton ?
-          <button
+          <Link
             className={styles.backButton}
-            onClick={props.onBackButtonClick}
+            to={props.backButtonLinkTo}
           >
             <Back/>
-          </button> :
+          </Link> :
           <Shell/>
       }
       <div className={styles.title}>
@@ -29,12 +30,12 @@ export const AppShell = props =>
   </React.Fragment>;
 
 AppShell.propTypes = {
+  backButtonLinkTo: conditionalRequire(PropTypes.string, props => props.hasBackButton),
   children: PropTypes.any,
   className: PropTypes.string,
   controls: PropTypes.any,
   elevated: PropTypes.bool,
   hasBackButton: PropTypes.bool,
-  onBackButtonClick: conditionalRequire(PropTypes.func, props => props.hasBackButton),
   title: PropTypes.string
 };
 AppShell.defaultProps = {
