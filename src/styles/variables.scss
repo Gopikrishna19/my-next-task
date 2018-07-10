@@ -1,5 +1,6 @@
 $body-background: #cfcfcf;
 $body-foreground: #573c26;
+$body-shade: #bfbfbf;
 
 $card-foreground: #322f2d;
 $card-background: #fff;
@@ -14,3 +15,12 @@ $elevate-5: 0 19px 38px rgba($card-shadow, 0.30), 0 15px 12px rgba($card-shadow,
 $gutter-small: 5px;
 $gutter: 10px;
 $gutter-large: 25px;
+
+$palette: (
+  swatch_1: #bfbfbf,
+  swatch_2: #cfcfcf,
+  swatch_3: #636261,
+  swatch_4: #322f2d,
+  swatch_5: #958677,
+  swatch_6: #573c26,
+)
