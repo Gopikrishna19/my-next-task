@@ -17,6 +17,7 @@ export const ShoppingList = () =>
     ]}
     elevated={true}
     hasBackButton={true}
+    title='Shopping List'
   >
     <ul style={{
       listStyle: 'none',
