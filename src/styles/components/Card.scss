@@ -1,0 +1,10 @@
+@import "../variables";
+
+.card {
+  background-color: $card-background;
+  border-radius: 2px;
+  box-shadow: $elevate-1;
+  color: $card-foreground;
+  margin: $gutter-large 0;
+  padding: $gutter;
+}

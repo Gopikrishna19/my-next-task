@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import {auth} from '../firebase';
 import styles from '../styles/components/Application.scss';
 import {AppShell} from './AppShell';
@@ -22,11 +23,12 @@ export const Application = () =>
   >
     <ul className={styles.menu}>
       <li>
-        <a
+        <Link
           className={styles.menuLink}
-          href="#">
+          to='/shopping-list'
+        >
           Shopping List
-        </a>
+        </Link>
       </li>
       <li>
         <a
