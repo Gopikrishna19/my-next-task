@@ -1,8 +1,8 @@
 {
   "name": "My Next Task",
   "short_name": "My Next Task",
-  "theme_color": "#80deea",
-  "background_color": "#80deea",
+  "theme_color": "#cfcfcf",
+  "background_color": "#cfcfcf",
   "display": "standalone",
   "orientation": "portrait",
   "Scope": "/",

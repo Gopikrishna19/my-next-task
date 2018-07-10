@@ -4,18 +4,17 @@
 .header {
   grid-area: header;
   align-items: center;
-  color: $primary-foreground;
+  color: $body-foreground;
   display: flex;
 }
 
 .header.elevated {
-  box-shadow: $primary-background-shadow;
+  box-shadow: $elevate-1;
 }
 
 .title {
   flex-grow: 1;
   font-size: 20px;
-  text-shadow: 0 1px 1px $primary-foreground-shadow;
 }
 
 .backButton {

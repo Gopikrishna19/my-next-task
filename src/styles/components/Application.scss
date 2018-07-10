@@ -1,5 +1,6 @@
 @import "../anchors";
 @import "../buttons";
+@import "../media";
 @import "../variables";
 
 .application {
@@ -13,15 +14,26 @@
 }
 
 .menu {
-  color: $primary-foreground;
+  color: $body-foreground;
   list-style: none;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+
+  @include tablet {
+    flex-direction: row;
+
+    li {
+      flex-grow: 1;
+    }
+  }
 }
 
 .menuLink {
   composes: anchorReset;
   composes: buttonOutlineBody;
   display: block;
-  margin-bottom: $gutter;
+  margin: $gutter;
   text-align: center;
 }

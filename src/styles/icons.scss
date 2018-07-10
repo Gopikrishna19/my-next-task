@@ -6,7 +6,7 @@
   width: 24px;
 }
 
-.iconWhite {
+.iconBody {
   composes: icon;
-  fill: $primary-foreground;
+  fill: $body-foreground;
 }

@@ -13,11 +13,18 @@
 .buttonOutlineBody {
   composes: button;
   background: none;
-  border: 1px solid $secondary-background;
-  color: $primary-foreground;
+  border: 1px solid $body-foreground;
+  color: $body-foreground;
+  transition: background-color .3s;
 
   &:hover {
-    background-color: $secondary-background;
-    color: $secondary-foreground;
+    background-color: $body-foreground;
+    color: $body-background;
+  }
+
+  &:active {
+    $fade: mix($body-foreground, $body-background, 60%);
+    background-color: $fade;
+    border-color: $fade;
   }
 }
