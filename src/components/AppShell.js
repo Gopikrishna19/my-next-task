@@ -34,7 +34,7 @@ export class AppShell extends React.Component {
 
   render() {
     return (
-      <React.Fragment>
+      <section className={`${styles.pageFrame } ${ this.props.pageAnimationClassName}`}>
         <header className={`${styles.header} ${this.state.elevated ? styles.elevated : ''}`}>
           {
             this.props.hasBackButton ?
@@ -58,7 +58,7 @@ export class AppShell extends React.Component {
         >
           {this.props.children}
         </main>
-      </React.Fragment>
+      </section>
     );
   }
 }
@@ -69,9 +69,12 @@ AppShell.propTypes = {
   className: PropTypes.string,
   controls: PropTypes.any,
   hasBackButton: PropTypes.bool,
+  pageAnimationClassName: PropTypes.string,
   title: PropTypes.string
 };
 AppShell.defaultProps = {
+  className: '',
   hasBackButton: false,
+  pageAnimationClassName: '',
   title: 'My Next Task'
 };

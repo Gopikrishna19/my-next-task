@@ -6,6 +6,7 @@ import {Add} from './icons/Add';
 
 export const ShoppingList = () =>
   <AppShell
+    pageAnimationClassName={styles.pageAnimation}
     backButtonLinkTo='/'
     controls={[
       <button

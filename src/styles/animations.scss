@@ -1,0 +1,34 @@
+@import "variables";
+
+.slideIn {
+  transition: left .3s ease-in-out;
+
+  &:global(.frame-enter) {
+    background-color: $body-background;
+    z-index: 2;
+    left: 100%;
+    box-shadow: $elevate-5;
+  }
+
+  &:global(.frame-enter.frame-enter-active) {
+    left: 0;
+  }
+
+  &:global(.frame-enter-done) {
+    left: auto;
+    background: none;
+    box-shadow: none;
+    z-index: auto;
+  }
+
+  &:global(.frame-exit) {
+    background-color: $body-background;
+    box-shadow: $elevate-5;
+    left: 0;
+    z-index: 2;
+  }
+
+  &:global(.frame-exit.frame-exit-active) {
+    left: 100%;
+  }
+}
