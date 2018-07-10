@@ -23,8 +23,8 @@ const getComponent = function (user) {
   let component;
 
   if (user && user.emailVerified) {
-    component = import('./components/Application')
-      .then(module => module.Application);
+    component = import('./components/Router')
+      .then(module => module.Router);
   } else {
     component = import('./components/Login')
       .then(module => module.Login);

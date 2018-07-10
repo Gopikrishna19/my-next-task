@@ -27,7 +27,7 @@ module.exports = (env, {mode}) => {
               options: {
                 importLoaders: 1,
                 localIdentName: '[local]--[hash:base64:5]',
-                modules: true,
+                modules: true
               }
             },
             'sass-loader'
@@ -68,6 +68,8 @@ module.exports = (env, {mode}) => {
 
   if (mode === DEVELOPMENT) {
     config.devServer = {
+      contentBase: '/',
+      historyApiFallback: true,
       hot: true,
       port: 8080,
       stats: 'minimal'
