@@ -1,0 +1,5 @@
+@import "../buttons";
+
+.addButton {
+  composes: buttonNoFootprint;
+}
