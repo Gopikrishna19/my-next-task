@@ -6,10 +6,11 @@
   align-items: center;
   color: $body-foreground;
   display: flex;
+  z-index: 1;
 }
 
 .header.elevated {
-  box-shadow: $elevate-1;
+  box-shadow: $elevate-2;
 }
 
 .title {

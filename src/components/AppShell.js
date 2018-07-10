@@ -39,7 +39,7 @@ AppShell.propTypes = {
   title: PropTypes.string
 };
 AppShell.defaultProps = {
-  elevated: true,
+  elevated: false,
   hasBackButton: false,
   title: 'My Next Task'
 };

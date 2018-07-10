@@ -12,10 +12,7 @@ const handleClick = () => {
 };
 
 export const Login = () =>
-  <AppShell
-    className={styles.login}
-    elevated={false}
-  >
+  <AppShell className={styles.login}>
     <button
       className={styles.loginButton}
       onClick={handleClick}>Login

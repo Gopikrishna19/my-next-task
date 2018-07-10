@@ -19,7 +19,6 @@ export const Application = () =>
         <Logout/>
       </button>
     ]}
-    elevated={false}
   >
     <ul className={styles.menu}>
       <li>
