@@ -3,6 +3,7 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 const CSSExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 const webpack = require('webpack');
+const {version} = require('./package');
 
 const DEVELOPMENT = 'development';
 
@@ -55,7 +56,16 @@ module.exports = (env, {mode}) => {
         template: path.join(__dirname, 'src', 'index.html')
       }),
       new CopyWebpackPlugin([
-        {from: 'src/static'}
+        {
+          from: 'src/static',
+          transform(fileContent, filePath) {
+            if (/worker\.js$/.test(filePath)) {
+              return fileContent.toString().replace(/{{version}}/, version);
+            }
+
+            return fileContent;
+          }
+        }
       ]),
       new webpack.DefinePlugin({
         'build.mode': JSON.stringify(mode)
