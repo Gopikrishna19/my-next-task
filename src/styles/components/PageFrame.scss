@@ -2,6 +2,7 @@
 @import "../variables";
 
 .pageFrame {
+  background-color: $body-background;
   display: grid;
   height: 100vh;
   position: absolute;

@@ -24,8 +24,7 @@
   }
 
   &:active {
-    $fade: mix($body-foreground, $body-background, 60%);
-    background-color: $fade;
-    border-color: $fade;
+    background-color: $body-fade-mix;
+    border-color: $body-fade-mix;
   }
 }

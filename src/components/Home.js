@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {auth} from '../firebase';
-import styles from '../styles/components/Application.scss';
+import styles from '../styles/components/Home.scss';
 import {PageFrame} from './PageFrame';
 import {Logout} from './icons/Logout';
 

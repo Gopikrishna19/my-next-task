@@ -1,10 +1,11 @@
-$body-background: #cfcfcf;
-$body-foreground: #573c26;
-$body-shade: #bfbfbf;
+$body-background: var(--body-background);
+$body-foreground: var(--body-foreground);
+$body-shade: var(--body-shade);
+$body-fade-mix: var(--body-fade-mix);
 
-$card-foreground: #322f2d;
-$card-background: #fff;
-$card-shadow: #573c26;
+$card-foreground: var(--card-foreground);
+$card-background: var(--card-background);
+$card-shadow: var(--card-shadow);
 
 $elevate-1: 0 1px 3px rgba($card-shadow, 0.12), 0 1px 2px rgba($card-shadow, 0.24);
 $elevate-2: 0 3px 6px rgba($card-shadow, 0.16), 0 3px 6px rgba($card-shadow, 0.23);

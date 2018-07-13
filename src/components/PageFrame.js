@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import {Link} from 'react-router-dom';
-import styles from '../styles/components/AppShell.scss';
+import styles from '../styles/components/PageFrame.scss';
 import {conditionalRequire} from '../utils/props';
 import {Back} from './icons/Back';
 import {Shell} from './icons/Shell';
+import ProviderTheme from './ProviderTheme';
 
 const setElevationOnScroll = (element, component) => {
   element.onscroll = () => {
@@ -34,31 +35,33 @@ export class PageFrame extends React.Component {
 
   render() {
     return (
-      <section className={`${styles.pageFrame } ${ this.props.pageAnimationClassName}`}>
-        <header className={`${styles.header} ${this.state.elevated ? styles.elevated : ''}`}>
-          {
-            this.props.hasBackButton ?
-              <Link
-                className={styles.backButton}
-                to={this.props.backButtonLinkTo}
-              >
-                <Back/>
-              </Link> :
-              <Shell/>
-          }
-          <div className={styles.title}>
-            {this.props.title}
-          </div>
-          {this.props.controls}
-        </header>
-        <main
-          ref={setEvents(this)}
-          className={`${this.props.className} ${styles.content}`}
-          tabIndex={-1}
-        >
-          {this.props.children}
-        </main>
-      </section>
+      <ProviderTheme>
+        <section className={`${styles.pageFrame } ${ this.props.pageAnimationClassName}`}>
+          <header className={`${styles.header} ${this.state.elevated ? styles.elevated : ''}`}>
+            {
+              this.props.hasBackButton ?
+                <Link
+                  className={styles.backButton}
+                  to={this.props.backButtonLinkTo}
+                >
+                  <Back/>
+                </Link> :
+                <Shell/>
+            }
+            <div className={styles.title}>
+              {this.props.title}
+            </div>
+            {this.props.controls}
+          </header>
+          <main
+            ref={setEvents(this)}
+            className={`${this.props.className} ${styles.content}`}
+            tabIndex={-1}
+          >
+            {this.props.children}
+          </main>
+        </section>
+      </ProviderTheme>
     );
   }
 }
