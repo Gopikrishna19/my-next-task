@@ -23,7 +23,7 @@ const setEvents = component => element => {
   }
 };
 
-export class AppShell extends React.Component {
+export class PageFrame extends React.Component {
   constructor() {
     super();
 
@@ -63,7 +63,7 @@ export class AppShell extends React.Component {
   }
 }
 
-AppShell.propTypes = {
+PageFrame.propTypes = {
   backButtonLinkTo: conditionalRequire(PropTypes.string, props => props.hasBackButton),
   children: PropTypes.any,
   className: PropTypes.string,
@@ -72,7 +72,7 @@ AppShell.propTypes = {
   pageAnimationClassName: PropTypes.string,
   title: PropTypes.string
 };
-AppShell.defaultProps = {
+PageFrame.defaultProps = {
   className: '',
   hasBackButton: false,
   pageAnimationClassName: '',

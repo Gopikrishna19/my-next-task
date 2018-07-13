@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from '../styles/components/ShoppingList.scss';
-import {AppShell} from './AppShell';
+import {PageFrame} from './PageFrame';
 import {Card} from './Card';
 import {Add} from './icons/Add';
 
 export const ShoppingList = () =>
-  <AppShell
+  <PageFrame
     pageAnimationClassName={styles.pageAnimation}
     backButtonLinkTo='/'
     controls={[
@@ -32,4 +32,4 @@ export const ShoppingList = () =>
         )
       }
     </ul>
-  </AppShell>;
+  </PageFrame>;

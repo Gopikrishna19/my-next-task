@@ -1,7 +1,7 @@
 import React from 'react';
 import {auth} from '../firebase';
 import styles from '../styles/components/Login.scss';
-import {AppShell} from './AppShell';
+import {PageFrame} from './PageFrame';
 
 const handleClick = () => {
   const authProvider = new auth.GoogleAuthProvider();
@@ -12,9 +12,9 @@ const handleClick = () => {
 };
 
 export const Login = () =>
-  <AppShell className={styles.login}>
+  <PageFrame className={styles.login}>
     <button
       className={styles.loginButton}
       onClick={handleClick}>Login
     </button>
-  </AppShell>;
+  </PageFrame>;

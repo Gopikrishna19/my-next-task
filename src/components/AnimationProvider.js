@@ -14,6 +14,9 @@ export const AnimationProvider = props =>
   </TransitionGroup>;
 
 AnimationProvider.propTypes = {
-  animationKey: PropTypes.string.isRequired,
+  animationKey: PropTypes.string,
   children: PropTypes.node
+};
+AnimationProvider.defaultProps = {
+  animationKey: 'root'
 };
