@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import {TransitionGroup, CSSTransition} from 'react-transition-group';
 
-export const AnimationProvider = props =>
+export const ProviderAnimation = props =>
   <TransitionGroup component={null}>
     <CSSTransition
       classNames='frame'
@@ -13,10 +13,10 @@ export const AnimationProvider = props =>
     </CSSTransition>
   </TransitionGroup>;
 
-AnimationProvider.propTypes = {
+ProviderAnimation.propTypes = {
   animationKey: PropTypes.string,
   children: PropTypes.node
 };
-AnimationProvider.defaultProps = {
+ProviderAnimation.defaultProps = {
   animationKey: 'root'
 };

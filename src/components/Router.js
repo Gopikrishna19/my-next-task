@@ -1,19 +1,19 @@
 import React from 'react';
 import {Route, Switch} from 'react-router-dom';
-import {AnimationProvider} from './AnimationProvider';
+import {ProviderAnimation} from './ProviderAnimation';
 import {Application} from './Application';
-import {RouterProvider} from './RouterProvider';
+import {ProviderRouter} from './ProviderRouter';
 import {ShoppingList} from './ShoppingList';
 
 export const Router = () =>
-  <RouterProvider>
+  <ProviderRouter>
     {
       ({location}) =>
-        <AnimationProvider animationKey={location.key}>
+        <ProviderAnimation animationKey={location.key}>
           <Switch location={location}>
             <Route exact path='/' component={Application}/>
             <Route exact path='/shopping-list' component={ShoppingList}/>
           </Switch>
-        </AnimationProvider>
+        </ProviderAnimation>
     }
-  </RouterProvider>;
+  </ProviderRouter>;
