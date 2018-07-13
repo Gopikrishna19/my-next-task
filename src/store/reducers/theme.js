@@ -1,7 +1,6 @@
 import {defineReducer} from '../../utils/reducers';
 import {actions} from '../actions';
-
-const defaultTheme = 'chocolate';
+import {defaultTheme} from '../state/themes';
 
 const handlers = {
   [actions.CHANGE_THEME]: (state, action) => action.theme
