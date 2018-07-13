@@ -5,6 +5,7 @@ import {ProviderAnimation} from './ProviderAnimation';
 import {ProviderRouter} from './ProviderRouter';
 import {ProviderStore} from './ProviderStore';
 import {ShoppingList} from './ShoppingList';
+import {ThemeSelect} from './ThemeSelect';
 
 export const Router = () =>
   <ProviderStore>
@@ -15,6 +16,7 @@ export const Router = () =>
             <Switch location={location}>
               <Route exact path='/' component={Home}/>
               <Route exact path='/shopping-list' component={ShoppingList}/>
+              <Route exact path='/theme-select' component={ThemeSelect}/>
             </Switch>
           </ProviderAnimation>
       }

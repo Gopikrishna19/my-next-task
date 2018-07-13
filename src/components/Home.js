@@ -2,8 +2,9 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {auth} from '../firebase';
 import styles from '../styles/components/Home.scss';
-import {PageFrame} from './PageFrame';
 import {Logout} from './icons/Logout';
+import {Theme} from './icons/Theme';
+import {PageFrame} from './PageFrame';
 
 const handleClick = () => auth().signOut();
 
@@ -11,6 +12,13 @@ export const Home = () =>
   <PageFrame
     className={styles.application}
     controls={[
+      <Link
+        className={styles.themeButton}
+        key='theme'
+        to='/theme-select'
+      >
+        <Theme/>
+      </Link>,
       <button
         className={styles.logoutButton}
         key='logout'

@@ -16,7 +16,6 @@ export const ShoppingList = () =>
         <Add/>
       </button>
     ]}
-    elevated={true}
     hasBackButton={true}
     title='Shopping List'
   >
@@ -26,9 +25,11 @@ export const ShoppingList = () =>
     }}>
       {
         Array.from({length: 100}).map((_, index) =>
-          <Card key={index}>
-            Shopping Item {index}
-          </Card>
+          <li key={index}>
+            <Card>
+              Shopping Item {index}
+            </Card>
+          </li>
         )
       }
     </ul>

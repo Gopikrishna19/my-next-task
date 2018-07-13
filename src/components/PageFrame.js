@@ -5,7 +5,7 @@ import styles from '../styles/components/PageFrame.scss';
 import {conditionalRequire} from '../utils/props';
 import {Back} from './icons/Back';
 import {Shell} from './icons/Shell';
-import ProviderTheme from './ProviderTheme';
+import {ProviderTheme} from './ProviderTheme';
 
 const setElevationOnScroll = (element, component) => {
   element.onscroll = () => {

@@ -1,0 +1,26 @@
+@import "../variables";
+
+.radio {
+  align-items: center;
+  border-radius: 2px;
+  display: flex;
+  margin-bottom: $gutter;
+  padding: $gutter;
+  text-transform: capitalize;
+  transition: background-color .3s ease-in-out;
+
+  input {
+    display: none;
+  }
+
+  &:active {
+    background-color: $body-shade;
+  }
+}
+
+.radioIcon {
+  fill: $body-foreground;
+  height: 24px;
+  margin-right: $gutter;
+  width: 24px;
+}

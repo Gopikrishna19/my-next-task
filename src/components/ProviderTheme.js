@@ -3,15 +3,15 @@ import React from 'react';
 import {connect} from 'react-redux';
 import styles from '../styles/components/ThemeProvider.scss';
 
-const ProviderTheme = props =>
+const $ProviderTheme = props =>
   React.Children.map(
     props.children,
     child => React.cloneElement(child, {className: `${child.props.className} ${styles[props.theme]}`})
   );
 
-ProviderTheme.propTypes = {
+$ProviderTheme.propTypes = {
   children: PropTypes.any.isRequired,
   theme: PropTypes.string.isRequired
 };
 
-export default connect(state => ({theme: state.theme}))(ProviderTheme);
+export const ProviderTheme = connect(state => ({theme: state.theme}))($ProviderTheme);

@@ -9,7 +9,8 @@
   justify-content: center;
 }
 
-.logoutButton {
+.logoutButton,
+.themeButton {
   composes: buttonNoFootprint;
 }
 
