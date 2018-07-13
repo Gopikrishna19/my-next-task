@@ -7,7 +7,7 @@ import {Logout} from './icons/Logout';
 
 const handleClick = () => auth().signOut();
 
-export const Application = () =>
+export const Home = () =>
   <PageFrame
     className={styles.application}
     controls={[
