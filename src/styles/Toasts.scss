@@ -1,0 +1,30 @@
+@import "variables";
+
+.toast {
+  background-color: $body-foreground;
+  border-radius: 4px;
+  bottom: $gutter-large * 2;
+  box-shadow: $elevate-3;
+  color: $body-background;
+  left: 50%;
+  padding: $gutter;
+  position: absolute;
+  transform: translateX(-50%);
+  transition: opacity .3s;
+}
+
+.toast.enter {
+  opacity: 0;
+}
+
+.toast.entering {
+  opacity: 1;
+}
+
+.toast.entered {
+  opacity: 1;
+}
+
+.toast.exiting {
+  opacity: 0;
+}

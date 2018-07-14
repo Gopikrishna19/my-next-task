@@ -4,6 +4,7 @@ import {ProviderRouteContext} from './ProviderRouteContext';
 import {ProviderRouter} from './ProviderRouter';
 import {ProviderStore} from './ProviderStore';
 import {RenderRouter} from './RenderRouter';
+import {RenderToasts} from './RenderToasts';
 
 export const RenderApplication = () =>
   <ProviderStore>
@@ -14,6 +15,7 @@ export const RenderApplication = () =>
             <ProviderAnimation animationKey={routeProps.location.key}>
               <RenderRouter location={routeProps.location}/>
             </ProviderAnimation>
+            <RenderToasts/>
           </ProviderRouteContext>
       }
     </ProviderRouter>
