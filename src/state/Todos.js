@@ -1,12 +1,14 @@
 import t from 'tcomb';
 
+export const Status = {
+  completed: 'completed',
+  defined: 'defined',
+  inProgress: 'in-progress',
+  onHold: 'on-hold'
+};
+
 export const Todo = t.struct({
-  status: t.enums.of([
-    'defined',
-    'in-progress',
-    'hold',
-    'completed'
-  ]),
+  status: t.enums.of(Object.values(Status)),
   task: t.String
 }, 'Todo');
 

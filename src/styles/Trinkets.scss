@@ -1,0 +1,7 @@
+@import "variables";
+
+.splitterHorizontal {
+  background: linear-gradient(to right, transparent, rgba(#{$card-shadow}, 1), transparent);
+  height: 1px;
+  margin: $gutter;
+}

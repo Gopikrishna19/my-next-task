@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import {connect} from 'react-redux';
 import {themes} from '../state/themes';
-import {onThemeChange} from '../store/action-creators/theme';
+import {updateTheme} from '../store/action-creators/theme';
 import animations from '../styles/Animations.scss';
 import styles from '../styles/ThemeSelect.scss';
 import {backButton} from '../utils/buttons';
@@ -27,8 +27,8 @@ const $ThemeSelect = props =>
             key={index}
           >
             <BlockRadio
-              isSelected={theme === props.selectedTheme}
-              onChange={props.onThemeChange}
+              isSelected={theme === props.theme}
+              onChange={props.updateTheme}
               value={theme}
             >
               {theme.replace(/-/, ' ')}
@@ -40,11 +40,11 @@ const $ThemeSelect = props =>
   </PageFrame>;
 
 $ThemeSelect.propTypes = {
-  onThemeChange: PropTypes.func.isRequired,
-  selectedTheme: PropTypes.string.isRequired
+  theme: PropTypes.string.isRequired,
+  updateTheme: PropTypes.func.isRequired
 };
 
 export const PageThemeSelect = connect(
-  state => ({selectedTheme: state.theme}),
-  {onThemeChange}
+  state => ({theme: state.theme}),
+  {updateTheme}
 )($ThemeSelect);

@@ -3,6 +3,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {pages} from '../state/routes';
+import {updateTodoStatus} from '../store/action-creators/todo';
 import animations from '../styles/Animations.scss';
 import {backButton} from '../utils/buttons';
 import {BlockButtonAction} from './BlockButtonAction';
@@ -29,6 +30,7 @@ const $PageListTodo = props =>
         <BlockTodoItem
           index={index}
           key={index}
+          onStatusChange={props.updateTodoStatus}
           todo={todo}
         />
       )
@@ -36,9 +38,11 @@ const $PageListTodo = props =>
   </PageFrame>;
 
 $PageListTodo.propTypes = {
-  todos: PropTypes.array.isRequired
+  todos: PropTypes.array.isRequired,
+  updateTodoStatus: PropTypes.func.isRequired
 };
 
 export const PageListTodo = connect(
-  state => ({todos: state.todos})
+  state => ({todos: state.todos}),
+  {updateTodoStatus}
 )($PageListTodo);

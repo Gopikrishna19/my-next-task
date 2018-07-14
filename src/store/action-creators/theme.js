@@ -1,6 +1,6 @@
 import {actions} from '../actions';
 
-export const onThemeChange = theme => ({
+export const updateTheme = theme => ({
   theme,
-  type: actions.THEME_CHANGE
+  type: actions.THEME_UPDATE
 });

@@ -17,11 +17,7 @@ $gutter-small: 5px;
 $gutter: 10px;
 $gutter-large: 25px;
 
-$palette: (
-  swatch_1: #bfbfbf,
-  swatch_2: #cfcfcf,
-  swatch_3: #636261,
-  swatch_4: #322f2d,
-  swatch_5: #958677,
-  swatch_6: #573c26,
-)
+$status-defined: #888;
+$status-in-progress: #080;
+$status-on-hold: #ff0;
+$status-completed: #f00;

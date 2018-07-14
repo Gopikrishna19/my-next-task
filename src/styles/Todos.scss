@@ -1,0 +1,10 @@
+@import "variables";
+
+.todoItemTask {
+  padding: $gutter;
+}
+
+.todoItemControls {
+  display: flex;
+  justify-content: flex-end;
+}
