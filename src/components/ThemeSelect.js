@@ -3,16 +3,22 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {onThemeChange} from '../store/action-creators/change-theme';
 import {themes} from '../store/state/themes';
+import animations from '../styles/components/Animations.scss';
 import styles from '../styles/components/ThemeSelect.scss';
-import {ApplyNavButton} from './buttons/ApplyNavButton';
+import {Apply} from './icons/Apply';
 import {PageFrame} from './PageFrame';
 import {Radio} from './Radio';
 
 const $ThemeSelect = props =>
   <PageFrame
-    pageAnimationClassName={styles.pageAnimation}
+    pageAnimationClassName={animations.slideIn}
     title='Select Theme'
-    titleNavButton={ApplyNavButton}
+    titleNavButtonProps={
+      routeProps => ({
+        icon: <Apply/>,
+        onClick: routeProps.history.goBack
+      })
+    }
   >
     <ul style={{
       listStyle: 'none',

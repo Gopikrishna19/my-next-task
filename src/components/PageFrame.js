@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import styles from '../styles/components/PageFrame.scss';
+import {ButtonNav} from './buttons/ButtonNav';
 import {ProviderTheme} from './ProviderTheme';
-import {TitleNavButton} from './TitleNavButton';
 
 const setElevationOnScroll = (element, component) => {
   element.onscroll = () => {
@@ -35,7 +35,7 @@ export class PageFrame extends React.Component {
       <ProviderTheme>
         <section className={`${styles.pageFrame } ${ this.props.pageAnimationClassName}`}>
           <header className={`${styles.header} ${this.state.elevated ? styles.elevated : ''}`}>
-            <TitleNavButton button={this.props.titleNavButton}/>
+            <ButtonNav applyProps={this.props.titleNavButtonProps}/>
             <div className={styles.title}>
               {this.props.title}
             </div>
@@ -60,7 +60,7 @@ PageFrame.propTypes = {
   controls: PropTypes.any,
   pageAnimationClassName: PropTypes.string,
   title: PropTypes.string,
-  titleNavButton: PropTypes.func
+  titleNavButtonProps: PropTypes.func
 };
 PageFrame.defaultProps = {
   className: '',

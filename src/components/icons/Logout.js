@@ -1,8 +1,8 @@
 import React from 'react';
-import styles from '../../styles/icons.scss';
+import {propTypes} from './propTypes';
 
-export const Logout = () =>
-  <svg className={styles.iconBody} viewBox="0 0 24 24">
+export const Logout = props =>
+  <svg className={props.className} viewBox="0 0 24 24">
     <path
       d={`
          M14.08,15.59L16.67,13H7V11H16.67L14.08,8.41L15.5,7L20.5,12L15.5,17L14.08,15.59M19,3A2,2 0
@@ -11,3 +11,5 @@ export const Logout = () =>
       `}
     />
   </svg>;
+
+Logout.propTypes = propTypes;

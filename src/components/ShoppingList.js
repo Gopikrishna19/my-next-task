@@ -1,23 +1,26 @@
 import React from 'react';
-import styles from '../styles/components/ShoppingList.scss';
-import {BackNavButton} from './buttons/BackNavButton';
+import animations from '../styles/components/Animations.scss';
+import {ButtonAction} from './buttons/ButtonAction';
 import {Card} from './Card';
 import {Add} from './icons/Add';
+import {Back} from './icons/Back';
 import {PageFrame} from './PageFrame';
 
 export const ShoppingList = () =>
   <PageFrame
-    pageAnimationClassName={styles.pageAnimation}
+    pageAnimationClassName={animations.slideIn}
     controls={[
-      <button
-        className={styles.addButton}
-        key='logout'
-      >
+      <ButtonAction key='logout'>
         <Add/>
-      </button>
+      </ButtonAction>
     ]}
     title='Shopping List'
-    titleNavButton={BackNavButton}
+    titleNavButtonProps={
+      routeProps => ({
+        icon: <Back/>,
+        onClick: routeProps.history.goBack
+      })
+    }
   >
     <ul style={{
       listStyle: 'none',

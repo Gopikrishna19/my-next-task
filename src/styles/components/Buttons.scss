@@ -1,0 +1,42 @@
+@import "../variables";
+@import "../functions";
+
+.buttonAction {
+  background: none;
+  border: 16px solid transparent;
+  border-radius: 50%;
+  box-sizing: content-box;
+  display: flex;
+  padding: 0;
+  transition: transition();
+
+  &:active {
+    background-color: $body-shade;
+    border-color: $body-shade;
+  }
+}
+
+.buttonOutline {
+  background: none;
+  border: 1px solid $body-foreground;
+  color: $body-foreground;
+  display: block;
+  padding: $gutter $gutter-large;
+  margin: $gutter;
+  text-align: center;
+  text-decoration: none;
+  transition: transition(background-color);
+
+  &:focus,
+  &:hover {
+    background-color: $body-foreground;
+    color: $body-background;
+    text-decoration: none;
+  }
+
+  &:active {
+    background-color: $body-fade-mix;
+    border-color: $body-fade-mix;
+    text-decoration: none;
+  }
+}

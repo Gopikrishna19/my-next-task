@@ -1,0 +1,3 @@
+@function transition($property: all) {
+  @return $property .3s ease-in;
+}

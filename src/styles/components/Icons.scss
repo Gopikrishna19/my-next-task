@@ -1,0 +1,16 @@
+@import "../variables";
+
+.icon {
+  height: 24px;
+  width: 24px;
+}
+
+.iconBody {
+  composes: icon;
+  fill: $body-foreground;
+}
+
+.iconCard {
+  composes: icon;
+  fill: $card-foreground;
+}

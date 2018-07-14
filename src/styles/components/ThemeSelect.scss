@@ -1,10 +1,4 @@
-@import "../animations";
-@import "../buttons";
 @import "../variables";
-
-.pageAnimation {
-  composes: slideIn;
-}
 
 .themeOption {
   margin: $gutter;

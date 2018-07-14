@@ -1,17 +1,10 @@
-@import "../anchors";
-@import "../buttons";
 @import "../media";
 @import "../variables";
 
-.application {
+.pageFrame {
   align-items: center;
   display: flex;
   justify-content: center;
-}
-
-.logoutButton,
-.themeButton {
-  composes: buttonNoFootprint;
 }
 
 .menu {
@@ -29,12 +22,4 @@
       flex-grow: 1;
     }
   }
-}
-
-.menuLink {
-  composes: anchorReset;
-  composes: buttonOutlineBody;
-  display: block;
-  margin: $gutter;
-  text-align: center;
 }
