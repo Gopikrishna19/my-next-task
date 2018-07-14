@@ -1,9 +1,9 @@
 import React from 'react';
 import animations from '../styles/Animations.scss';
+import {backButton} from '../utils/buttons';
 import {BlockButtonAction} from './BlockButtonAction';
 import {BlockCard} from './BlockCard';
 import {BlockIconAdd} from './BlockIconAdd';
-import {BlockIconBack} from './BlockIconBack';
 import {PageFrame} from './PageFrame';
 
 export const PageListTodo = () =>
@@ -16,12 +16,7 @@ export const PageListTodo = () =>
       />
     ]}
     title='Todo List'
-    titleNavButtonProps={
-      routeProps => ({
-        icon: BlockIconBack,
-        onClick: routeProps.history.goBack
-      })
-    }
+    titleNavButtonProps={backButton()}
   >
     <ul style={{
       listStyle: 'none',

@@ -1,24 +1,20 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import {connect} from 'react-redux';
-import {onThemeChange} from '../store/action-creators/change-theme';
 import {themes} from '../state/themes';
+import {onThemeChange} from '../store/action-creators/change-theme';
 import animations from '../styles/Animations.scss';
 import styles from '../styles/ThemeSelect.scss';
+import {backButton} from '../utils/buttons';
 import {BlockIconApply} from './BlockIconApply';
-import {PageFrame} from './PageFrame';
 import {BlockRadio} from './BlockRadio';
+import {PageFrame} from './PageFrame';
 
 const $ThemeSelect = props =>
   <PageFrame
     pageAnimationClassName={animations.slideIn}
     title='Select Theme'
-    titleNavButtonProps={
-      routeProps => ({
-        icon: BlockIconApply,
-        onClick: routeProps.history.goBack
-      })
-    }
+    titleNavButtonProps={backButton(BlockIconApply)}
   >
     <ul style={{
       listStyle: 'none',
