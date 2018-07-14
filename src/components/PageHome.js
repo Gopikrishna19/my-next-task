@@ -39,8 +39,8 @@ export const PageHome = () =>
       </li>
       <li>
         <BlockButtonOutline
-          as='a'
-          href="#"
+          as={Link}
+          to={pages.listTodo}
         >
           Todo List
         </BlockButtonOutline>
