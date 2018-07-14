@@ -4,7 +4,6 @@ import {connect} from 'react-redux';
 import {hideOldestToast} from '../store/action-creators/toast';
 import styles from '../styles/Toasts.scss';
 import {join} from '../utils/class-names';
-import {ProviderTheme} from './ProviderTheme';
 
 const Timeout = 5000;
 const AnimationTimeout = 300;
@@ -46,11 +45,9 @@ class $RenderToasts extends Component {
       this.startTimers();
 
       return (
-        <ProviderTheme>
-          <span className={join(styles.toast, this.state.activeClass)}>
-            {toast}
-          </span>
-        </ProviderTheme>
+        <div className={join(styles.toast, this.state.activeClass)}>
+          {toast}
+        </div>
       );
     }
 

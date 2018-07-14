@@ -1,7 +1,6 @@
 import React from 'react';
 import {render} from 'react-dom';
 import {auth} from './firebase';
-import './index.scss';
 import progressive from './progressive';
 
 const host = document.getElementById('app');

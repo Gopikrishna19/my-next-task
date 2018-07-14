@@ -3,7 +3,6 @@ import React from 'react';
 import styles from '../styles/PageFrame.scss';
 import {conditionalClassName, join} from '../utils/class-names';
 import {BlockButtonNav} from './BlockButtonNav';
-import {ProviderTheme} from './ProviderTheme';
 
 export class PageFrame extends React.Component {
   setElevationOnScroll = element => {
@@ -39,24 +38,22 @@ export class PageFrame extends React.Component {
 
   render() {
     return (
-      <ProviderTheme>
-        <section className={join(styles.pageFrame, this.props.pageAnimationClassName)}>
-          <header className={join(styles.header, conditionalClassName(this.state.elevated, styles.elevated))}>
-            <BlockButtonNav applyProps={this.props.titleNavButtonProps}/>
-            <div className={styles.title}>
-              {this.props.title}
-            </div>
-            {this.props.controls}
-          </header>
-          <main
-            ref={this.setEvents}
-            className={join(this.props.className, styles.content)}
-            tabIndex={-1}
-          >
-            {this.props.children}
-          </main>
-        </section>
-      </ProviderTheme>
+      <section className={join(styles.pageFrame, this.props.pageAnimationClassName)}>
+        <header className={join(styles.header, conditionalClassName(this.state.elevated, styles.elevated))}>
+          <BlockButtonNav applyProps={this.props.titleNavButtonProps}/>
+          <div className={styles.title}>
+            {this.props.title}
+          </div>
+          {this.props.controls}
+        </header>
+        <main
+          ref={this.setEvents}
+          className={join(this.props.className, styles.content)}
+          tabIndex={-1}
+        >
+          {this.props.children}
+        </main>
+      </section>
     );
   }
 }

@@ -1,14 +1,14 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import {connect} from 'react-redux';
+import themes from '../styles/Themes.scss';
 import styles from '../styles/ThemeProvider.scss';
 import {join} from '../utils/class-names';
 
 const $ProviderTheme = props =>
-  React.Children.map(
-    props.children,
-    child => React.cloneElement(child, {className: join(child.props.className, styles[props.theme])})
-  );
+  <div className={join(themes[props.theme], styles.wrapper)}>
+    {props.children}
+  </div>;
 
 $ProviderTheme.propTypes = {
   children: PropTypes.any.isRequired,
