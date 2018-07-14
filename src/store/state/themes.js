@@ -1,4 +1,4 @@
-import styles from '../../styles/components/ThemeProvider.scss';
+import styles from '../../styles/ThemeProvider.scss';
 
 export const themes = Object.keys(styles);
 

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
 
-export const propTypes = {
+export const iconPropTypes = {
   className: PropTypes.string.isRequired
 };

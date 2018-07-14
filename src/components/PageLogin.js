@@ -1,8 +1,8 @@
 import React from 'react';
 import {auth} from '../firebase';
 import {getStore} from '../store';
-import styles from '../styles/components/Login.scss';
-import {ButtonOutline} from './buttons/ButtonOutline';
+import styles from '../styles/Login.scss';
+import {BlockButtonOutline} from './BlockButtonOutline';
 import {PageFrame} from './PageFrame';
 import {ProviderStore} from './ProviderStore';
 
@@ -14,9 +14,9 @@ const handleClick = () => {
     .catch(() => null);
 };
 
-export const Login = () =>
+export const PageLogin = () =>
   <ProviderStore store={getStore()}>
     <PageFrame className={styles.login}>
-      <ButtonOutline onClick={handleClick}>Login</ButtonOutline>
+      <BlockButtonOutline onClick={handleClick}>Login</BlockButtonOutline>
     </PageFrame>
   </ProviderStore>;

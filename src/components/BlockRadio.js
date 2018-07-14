@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import styles from '../styles/components/Radio.scss';
+import styles from '../styles/Radio.scss';
 import {noOp} from '../utils/helpers';
 
 const handleChange = props => event => props.onChange(event.target.value);
 
-export const Radio = props =>
+export const BlockRadio = props =>
   <label className={styles.radio}>
     <input
       checked={props.isSelected}
@@ -20,12 +20,12 @@ export const Radio = props =>
     {props.children}
   </label>;
 
-Radio.propTypes = {
+BlockRadio.propTypes = {
   children: PropTypes.any.isRequired,
   isSelected: PropTypes.bool.isRequired,
   onChange: PropTypes.func,
   value: PropTypes.string.isRequired
 };
-Radio.defaultProps = {
+BlockRadio.defaultProps = {
   onChange: noOp
 };

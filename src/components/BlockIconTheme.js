@@ -1,7 +1,7 @@
 import React from 'react';
-import {propTypes} from './propTypes';
+import {iconPropTypes} from '../utils/propTypes';
 
-export const Theme = props =>
+export const BlockIconTheme = props =>
   <svg className={props.className} viewBox="0 0 24 24">
     <path d={`
       M18,4V3A1,1 0 0,0 17,2H5A1,1 0 0,0
@@ -12,4 +12,4 @@ export const Theme = props =>
     `}/>
   </svg>;
 
-Theme.propTypes = propTypes;
+BlockIconTheme.propTypes = iconPropTypes;

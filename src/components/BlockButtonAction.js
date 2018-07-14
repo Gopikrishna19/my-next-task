@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import styles from '../../styles/components/Buttons.scss';
-import iconStyles from '../../styles/components/Icons.scss';
+import styles from '../styles/Buttons.scss';
+import iconStyles from '../styles/Icons.scss';
 
-export const ButtonAction = props => {
+export const BlockButtonAction = props => {
   const {as: Button, icon: Icon, children, ...rest} = props;
 
   return (
@@ -17,7 +17,7 @@ export const ButtonAction = props => {
   );
 };
 
-ButtonAction.propTypes = {
+BlockButtonAction.propTypes = {
   as: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.func
@@ -25,6 +25,6 @@ ButtonAction.propTypes = {
   children: PropTypes.any,
   icon: PropTypes.func.isRequired
 };
-ButtonAction.defaultProps = {
+BlockButtonAction.defaultProps = {
   as: 'button'
 };

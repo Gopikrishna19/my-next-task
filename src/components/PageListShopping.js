@@ -1,24 +1,24 @@
 import React from 'react';
-import animations from '../styles/components/Animations.scss';
-import {ButtonAction} from './buttons/ButtonAction';
-import {Card} from './Card';
-import {Add} from './icons/Add';
-import {Back} from './icons/Back';
+import animations from '../styles/Animations.scss';
+import {BlockButtonAction} from './BlockButtonAction';
+import {BlockCard} from './BlockCard';
+import {BlockIconAdd} from './BlockIconAdd';
+import {BlockIconBack} from './BlockIconBack';
 import {PageFrame} from './PageFrame';
 
-export const ShoppingList = () =>
+export const PageListShopping = () =>
   <PageFrame
     pageAnimationClassName={animations.slideIn}
     controls={[
-      <ButtonAction
-        icon={Add}
+      <BlockButtonAction
+        icon={BlockIconAdd}
         key='add'
       />
     ]}
     title='Shopping List'
     titleNavButtonProps={
       routeProps => ({
-        icon: Back,
+        icon: BlockIconBack,
         onClick: routeProps.history.goBack
       })
     }
@@ -30,9 +30,9 @@ export const ShoppingList = () =>
       {
         Array.from({length: 100}).map((_, index) =>
           <li key={index}>
-            <Card>
+            <BlockCard>
               Shopping Item {index}
-            </Card>
+            </BlockCard>
           </li>
         )
       }

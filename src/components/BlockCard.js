@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import styles from '../styles/components/Card.scss';
+import styles from '../styles/Card.scss';
 
-export const Card = props =>
+export const BlockCard = props =>
   <div className={styles.card}>
     {props.children}
   </div>;
 
-Card.propTypes = {
+BlockCard.propTypes = {
   children: PropTypes.any.isRequired
 };

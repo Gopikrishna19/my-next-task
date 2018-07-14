@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import {connect} from 'react-redux';
-import styles from '../styles/components/ThemeProvider.scss';
+import styles from '../styles/ThemeProvider.scss';
 import {join} from '../utils/class-names';
 
 const $ProviderTheme = props =>

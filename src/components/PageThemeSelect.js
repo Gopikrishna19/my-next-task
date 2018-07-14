@@ -3,11 +3,11 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {onThemeChange} from '../store/action-creators/change-theme';
 import {themes} from '../store/state/themes';
-import animations from '../styles/components/Animations.scss';
-import styles from '../styles/components/ThemeSelect.scss';
-import {Apply} from './icons/Apply';
+import animations from '../styles/Animations.scss';
+import styles from '../styles/ThemeSelect.scss';
+import {BlockIconApply} from './BlockIconApply';
 import {PageFrame} from './PageFrame';
-import {Radio} from './Radio';
+import {BlockRadio} from './BlockRadio';
 
 const $ThemeSelect = props =>
   <PageFrame
@@ -15,7 +15,7 @@ const $ThemeSelect = props =>
     title='Select Theme'
     titleNavButtonProps={
       routeProps => ({
-        icon: Apply,
+        icon: BlockIconApply,
         onClick: routeProps.history.goBack
       })
     }
@@ -30,13 +30,13 @@ const $ThemeSelect = props =>
             className={styles.themeOption}
             key={index}
           >
-            <Radio
+            <BlockRadio
               isSelected={theme === props.selectedTheme}
               onChange={props.onThemeChange}
               value={theme}
             >
               {theme.replace(/-/, ' ')}
-            </Radio>
+            </BlockRadio>
           </li>
         )
       }
@@ -48,7 +48,7 @@ $ThemeSelect.propTypes = {
   selectedTheme: PropTypes.string.isRequired
 };
 
-export const ThemeSelect = connect(
+export const PageThemeSelect = connect(
   state => ({selectedTheme: state.theme}),
   {onThemeChange}
 )($ThemeSelect);

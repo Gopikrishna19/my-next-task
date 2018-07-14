@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import styles from '../../styles/components/Buttons.scss';
+import styles from '../styles/Buttons.scss';
 
-export const ButtonOutline = props => {
+export const BlockButtonOutline = props => {
   const {as: Button, ...rest} = props;
 
   return (
@@ -13,12 +13,12 @@ export const ButtonOutline = props => {
   );
 };
 
-ButtonOutline.propTypes = {
+BlockButtonOutline.propTypes = {
   as: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.func
   ])
 };
-ButtonOutline.defaultProps = {
+BlockButtonOutline.defaultProps = {
   as: 'button'
 };

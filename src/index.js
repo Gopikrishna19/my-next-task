@@ -23,11 +23,11 @@ const getComponent = function (user) {
   let component;
 
   if (user && user.emailVerified) {
-    component = import('./components/Router')
-      .then(module => module.Router);
+    component = import('./components/RenderApplication')
+      .then(module => module.RenderApplication);
   } else {
-    component = import('./components/Login')
-      .then(module => module.Login);
+    component = import('./components/PageLogin')
+      .then(module => module.PageLogin);
   }
 
   return component;

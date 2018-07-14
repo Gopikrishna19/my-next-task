@@ -1,7 +1,7 @@
 import React from 'react';
-import {propTypes} from './propTypes';
+import {iconPropTypes} from '../utils/propTypes';
 
-export const Logout = props =>
+export const BlockIconLogout = props =>
   <svg className={props.className} viewBox="0 0 24 24">
     <path
       d={`
@@ -12,4 +12,4 @@ export const Logout = props =>
     />
   </svg>;
 
-Logout.propTypes = propTypes;
+BlockIconLogout.propTypes = iconPropTypes;

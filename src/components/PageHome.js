@@ -1,27 +1,27 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {auth} from '../firebase';
-import styles from '../styles/components/Home.scss';
-import {ButtonAction} from './buttons/ButtonAction';
-import {ButtonOutline} from './buttons/ButtonOutline';
-import {Logout} from './icons/Logout';
-import {Theme} from './icons/Theme';
+import styles from '../styles/Home.scss';
+import {BlockButtonAction} from './BlockButtonAction';
+import {BlockButtonOutline} from './BlockButtonOutline';
+import {BlockIconLogout} from './BlockIconLogout';
+import {BlockIconTheme} from './BlockIconTheme';
 import {PageFrame} from './PageFrame';
 
 const handleClick = () => auth().signOut();
 
-export const Home = () =>
+export const PageHome = () =>
   <PageFrame
     className={styles.pageFrame}
     controls={[
-      <ButtonAction
+      <BlockButtonAction
         as={Link}
-        icon={Theme}
+        icon={BlockIconTheme}
         key='theme'
         to='/theme-select'
       />,
-      <ButtonAction
-        icon={Logout}
+      <BlockButtonAction
+        icon={BlockIconLogout}
         key='logout'
         onClick={handleClick}
       />
@@ -29,20 +29,20 @@ export const Home = () =>
   >
     <ul className={styles.menu}>
       <li>
-        <ButtonOutline
+        <BlockButtonOutline
           as={Link}
-          to='/shopping-list'
+          to='/list-shopping'
         >
           Shopping List
-        </ButtonOutline>
+        </BlockButtonOutline>
       </li>
       <li>
-        <ButtonOutline
+        <BlockButtonOutline
           as='a'
           href="#"
         >
           Todo List
-        </ButtonOutline>
+        </BlockButtonOutline>
       </li>
     </ul>
   </PageFrame>;
