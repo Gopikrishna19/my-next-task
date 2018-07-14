@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {defaultTodo} from '../state/Todos';
-import {addTodo} from '../store/action-creators/add-todo';
+import {addTodo} from '../store/action-creators/todo';
 import animations from '../styles/Animations.scss';
 import {backButton} from '../utils/buttons';
 import {BlockButtonAction} from './BlockButtonAction';

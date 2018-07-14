@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import {connect} from 'react-redux';
 import {themes} from '../state/themes';
-import {onThemeChange} from '../store/action-creators/change-theme';
+import {onThemeChange} from '../store/action-creators/theme';
 import animations from '../styles/Animations.scss';
 import styles from '../styles/ThemeSelect.scss';
 import {backButton} from '../utils/buttons';
