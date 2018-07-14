@@ -25,7 +25,9 @@ export class PageFrame extends React.Component {
   };
 
   setFocus = element => {
-    element.focus();
+    if (!this.props.requestFocus) {
+      element.focus();
+    }
   };
 
   setEvents = element => {
@@ -64,10 +66,12 @@ PageFrame.propTypes = {
   className: PropTypes.string,
   controls: PropTypes.any,
   pageAnimationClassName: PropTypes.string,
+  requestFocus: PropTypes.bool,
   title: PropTypes.string,
   titleNavButtonProps: PropTypes.func
 };
 PageFrame.defaultProps = {
   hasBackButton: false,
+  requestFocus: false,
   title: 'My Next Task'
 };

@@ -5,6 +5,7 @@ import {pages} from '../state/routes';
 import {PageHome} from './PageHome';
 import {PageListShopping} from './PageListShopping';
 import {PageListTodo} from './PageListTodo';
+import {PageListTodoAddItem} from './PageListTodoAddItem';
 import {PageThemeSelect} from './PageThemeSelect';
 
 export const RenderRouter = props =>
@@ -12,6 +13,7 @@ export const RenderRouter = props =>
     <Route exact path={pages.$home} component={PageHome}/>
     <Route exact path={pages.listShopping} component={PageListShopping}/>
     <Route exact path={pages.listTodo} component={PageListTodo}/>
+    <Route exact path={pages.listTodoAddItem} component={PageListTodoAddItem}/>
     <Route exact path={pages.themeSelect} component={PageThemeSelect}/>
   </Switch>;
 

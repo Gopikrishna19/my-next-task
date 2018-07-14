@@ -11,8 +11,8 @@ export const BlockButtonAction = props => {
       {...rest}
       className={styles.buttonAction}
     >
-      <Icon className={iconStyles.iconBody}/>
-      {children}
+      {Icon && <Icon className={iconStyles.iconBody}/>}
+      {children && <span className={styles.buttonActionText}>{children}</span>}
     </Button>
   );
 };
@@ -23,7 +23,7 @@ BlockButtonAction.propTypes = {
     PropTypes.func
   ]),
   children: PropTypes.any,
-  icon: PropTypes.func.isRequired
+  icon: PropTypes.func
 };
 BlockButtonAction.defaultProps = {
   as: 'button'

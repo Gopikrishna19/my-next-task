@@ -1,0 +1,39 @@
+@import "variables";
+
+$input-padding: $gutter;
+
+.inputTextWrapper {
+  align-items: flex-end;
+  display: flex;
+  position: relative;
+  height: calc(2em + 2 * #{$input-padding} + 1px);
+  margin-bottom: $gutter;
+}
+
+.inputText {
+  background: none;
+  border: none;
+  border-bottom: 1px solid $body-foreground;
+  flex: 1;
+  font-size: inherit;
+  line-height: 1em;
+  padding: $input-padding;
+}
+
+.inputTextPlaceholder {
+  left: $input-padding;
+  line-height: 1em;
+  position: absolute;
+  bottom: 0;
+  transform: translateY(-50%);
+  transition: all .3s;
+}
+
+.inputText:focus,
+.inputText:not(focus):valid {
+  ~ .inputTextPlaceholder {
+    bottom: calc(1.5em + 2 * #{$input-padding} + 1px);
+    transform: none;
+    font-size: 0.75em;
+  }
+}

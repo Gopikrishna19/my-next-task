@@ -1,3 +1,5 @@
 export const actions = {
-  CHANGE_THEME: 'CHANGE_THEME'
+  THEME_CHANGE: 'THEME_CHANGE',
+  TODOS_ADD: 'TODOS_ADD',
+  TODOS_SET: 'TODOS_SET'
 };
