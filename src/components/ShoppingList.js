@@ -1,13 +1,13 @@
 import React from 'react';
 import styles from '../styles/components/ShoppingList.scss';
-import {PageFrame} from './PageFrame';
+import {BackNavButton} from './buttons/BackNavButton';
 import {Card} from './Card';
 import {Add} from './icons/Add';
+import {PageFrame} from './PageFrame';
 
 export const ShoppingList = () =>
   <PageFrame
     pageAnimationClassName={styles.pageAnimation}
-    backButtonLinkTo='/'
     controls={[
       <button
         className={styles.addButton}
@@ -16,8 +16,8 @@ export const ShoppingList = () =>
         <Add/>
       </button>
     ]}
-    hasBackButton={true}
     title='Shopping List'
+    titleNavButton={BackNavButton}
   >
     <ul style={{
       listStyle: 'none',

@@ -4,15 +4,15 @@ import {connect} from 'react-redux';
 import {onThemeChange} from '../store/action-creators/change-theme';
 import {themes} from '../store/state/themes';
 import styles from '../styles/components/ThemeSelect.scss';
+import {ApplyNavButton} from './buttons/ApplyNavButton';
 import {PageFrame} from './PageFrame';
 import {Radio} from './Radio';
 
 const $ThemeSelect = props =>
   <PageFrame
     pageAnimationClassName={styles.pageAnimation}
-    backButtonLinkTo='/'
-    hasBackButton={true}
     title='Select Theme'
+    titleNavButton={ApplyNavButton}
   >
     <ul style={{
       listStyle: 'none',

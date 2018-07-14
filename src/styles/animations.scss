@@ -1,17 +1,18 @@
 @import "variables";
 
 .slideIn {
+  $leftIn: 0;
+  $leftOut: 120%;
   transition: left .3s ease-in-out;
 
   &:global(.frame-enter) {
     z-index: 2;
-    left: 100%;
+    left: $leftOut;
     box-shadow: $elevate-5;
   }
 
   &:global(.frame-enter.frame-enter-active) {
-    left: 0;
-    box-shadow: 0 0 $body-background;
+    left: $leftIn;
   }
 
   &:global(.frame-enter-done) {
@@ -22,11 +23,11 @@
 
   &:global(.frame-exit) {
     box-shadow: $elevate-5;
-    left: 0;
+    left: $leftIn;
     z-index: 2;
   }
 
   &:global(.frame-exit.frame-exit-active) {
-    left: 100%;
+    left: $leftOut;
   }
 }

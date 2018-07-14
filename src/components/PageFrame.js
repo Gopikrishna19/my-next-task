@@ -1,11 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import {Link} from 'react-router-dom';
 import styles from '../styles/components/PageFrame.scss';
-import {conditionalRequire} from '../utils/props';
-import {Back} from './icons/Back';
-import {Shell} from './icons/Shell';
 import {ProviderTheme} from './ProviderTheme';
+import {TitleNavButton} from './TitleNavButton';
 
 const setElevationOnScroll = (element, component) => {
   element.onscroll = () => {
@@ -38,16 +35,7 @@ export class PageFrame extends React.Component {
       <ProviderTheme>
         <section className={`${styles.pageFrame } ${ this.props.pageAnimationClassName}`}>
           <header className={`${styles.header} ${this.state.elevated ? styles.elevated : ''}`}>
-            {
-              this.props.hasBackButton ?
-                <Link
-                  className={styles.backButton}
-                  to={this.props.backButtonLinkTo}
-                >
-                  <Back/>
-                </Link> :
-                <Shell/>
-            }
+            <TitleNavButton button={this.props.titleNavButton}/>
             <div className={styles.title}>
               {this.props.title}
             </div>
@@ -67,13 +55,12 @@ export class PageFrame extends React.Component {
 }
 
 PageFrame.propTypes = {
-  backButtonLinkTo: conditionalRequire(PropTypes.string, props => props.hasBackButton),
   children: PropTypes.any,
   className: PropTypes.string,
   controls: PropTypes.any,
-  hasBackButton: PropTypes.bool,
   pageAnimationClassName: PropTypes.string,
-  title: PropTypes.string
+  title: PropTypes.string,
+  titleNavButton: PropTypes.func
 };
 PageFrame.defaultProps = {
   className: '',

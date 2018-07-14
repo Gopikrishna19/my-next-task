@@ -1,0 +1,5 @@
+@import "../buttons";
+
+.applyNavButton {
+  composes: buttonNoFootprint;
+}

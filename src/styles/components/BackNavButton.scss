@@ -1,0 +1,5 @@
+@import "../buttons";
+
+.backNavButton {
+  composes: buttonNoFootprint;
+}
