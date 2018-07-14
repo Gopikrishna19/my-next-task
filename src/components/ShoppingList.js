@@ -10,7 +10,7 @@ export const ShoppingList = () =>
   <PageFrame
     pageAnimationClassName={animations.slideIn}
     controls={[
-      <ButtonAction key='logout'>
+      <ButtonAction key='add'>
         <Add/>
       </ButtonAction>
     ]}

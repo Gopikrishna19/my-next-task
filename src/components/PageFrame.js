@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import styles from '../styles/components/PageFrame.scss';
+import {conditionalClassName, join} from '../utils/class-names';
 import {ButtonNav} from './buttons/ButtonNav';
 import {ProviderTheme} from './ProviderTheme';
 
@@ -33,8 +34,8 @@ export class PageFrame extends React.Component {
   render() {
     return (
       <ProviderTheme>
-        <section className={`${styles.pageFrame } ${ this.props.pageAnimationClassName}`}>
-          <header className={`${styles.header} ${this.state.elevated ? styles.elevated : ''}`}>
+        <section className={join(styles.pageFrame, this.props.pageAnimationClassName)}>
+          <header className={join(styles.header, conditionalClassName(this.state.elevated, styles.elevated))}>
             <ButtonNav applyProps={this.props.titleNavButtonProps}/>
             <div className={styles.title}>
               {this.props.title}
@@ -43,7 +44,7 @@ export class PageFrame extends React.Component {
           </header>
           <main
             ref={setEvents(this)}
-            className={`${this.props.className} ${styles.content}`}
+            className={join(this.props.className, styles.content)}
             tabIndex={-1}
           >
             {this.props.children}
@@ -63,8 +64,6 @@ PageFrame.propTypes = {
   titleNavButtonProps: PropTypes.func
 };
 PageFrame.defaultProps = {
-  className: '',
   hasBackButton: false,
-  pageAnimationClassName: '',
   title: 'My Next Task'
 };
