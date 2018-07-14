@@ -14,18 +14,17 @@ export const Home = () =>
   <PageFrame
     className={styles.pageFrame}
     controls={[
-      <ButtonAction as={Link}
+      <ButtonAction
+        as={Link}
+        icon={Theme}
         key='theme'
         to='/theme-select'
-      >
-        <Theme/>
-      </ButtonAction>,
+      />,
       <ButtonAction
+        icon={Logout}
         key='logout'
         onClick={handleClick}
-      >
-        <Logout/>
-      </ButtonAction>
+      />
     ]}
   >
     <ul className={styles.menu}>

@@ -4,18 +4,15 @@ import styles from '../../styles/components/Buttons.scss';
 import iconStyles from '../../styles/components/Icons.scss';
 
 export const ButtonAction = props => {
-  const {as: Button, children, ...rest} = props;
-  const icon = React.cloneElement(
-    React.Children.only(children),
-    {className: iconStyles.iconBody}
-  );
+  const {as: Button, icon: Icon, children, ...rest} = props;
 
   return (
     <Button
       {...rest}
       className={styles.buttonAction}
     >
-      {icon}
+      <Icon className={iconStyles.iconBody}/>
+      {children}
     </Button>
   );
 };
@@ -25,7 +22,8 @@ ButtonAction.propTypes = {
     PropTypes.string,
     PropTypes.func
   ]),
-  children: PropTypes.any
+  children: PropTypes.any,
+  icon: PropTypes.func.isRequired
 };
 ButtonAction.defaultProps = {
   as: 'button'

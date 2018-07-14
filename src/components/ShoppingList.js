@@ -10,14 +10,15 @@ export const ShoppingList = () =>
   <PageFrame
     pageAnimationClassName={animations.slideIn}
     controls={[
-      <ButtonAction key='add'>
-        <Add/>
-      </ButtonAction>
+      <ButtonAction
+        icon={Add}
+        key='add'
+      />
     ]}
     title='Shopping List'
     titleNavButtonProps={
       routeProps => ({
-        icon: <Back/>,
+        icon: Back,
         onClick: routeProps.history.goBack
       })
     }

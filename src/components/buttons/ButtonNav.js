@@ -6,17 +6,7 @@ import {ButtonAction} from './ButtonAction';
 
 export const ButtonNav = props =>
   <RouteContext.Consumer>
-    {
-      routeProps => {
-        const {icon, ...rest} = props.applyProps(routeProps);
-
-        return (
-          <ButtonAction {...rest}>
-            {icon}
-          </ButtonAction>
-        );
-      }
-    }
+    {routeProps => <ButtonAction {...props.applyProps(routeProps)}/>}
   </RouteContext.Consumer>;
 
 ButtonNav.propTypes = {
@@ -25,6 +15,6 @@ ButtonNav.propTypes = {
 ButtonNav.defaultProps = {
   applyProps: () => ({
     as: 'i',
-    icon: <Shell/>
+    icon: Shell
   })
 };

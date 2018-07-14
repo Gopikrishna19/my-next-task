@@ -15,7 +15,7 @@ const $ThemeSelect = props =>
     title='Select Theme'
     titleNavButtonProps={
       routeProps => ({
-        icon: <Apply/>,
+        icon: Apply,
         onClick: routeProps.history.goBack
       })
     }
