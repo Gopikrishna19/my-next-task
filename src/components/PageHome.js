@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {auth} from '../firebase';
 import styles from '../styles/Home.scss';
+import {pages} from '../state/routes';
 import {BlockButtonAction} from './BlockButtonAction';
 import {BlockButtonOutline} from './BlockButtonOutline';
 import {BlockIconLogout} from './BlockIconLogout';
@@ -18,7 +19,7 @@ export const PageHome = () =>
         as={Link}
         icon={BlockIconTheme}
         key='theme'
-        to='/theme-select'
+        to={pages.themeSelect}
       />,
       <BlockButtonAction
         icon={BlockIconLogout}
@@ -31,7 +32,7 @@ export const PageHome = () =>
       <li>
         <BlockButtonOutline
           as={Link}
-          to='/list-shopping'
+          to={pages.listShopping}
         >
           Shopping List
         </BlockButtonOutline>

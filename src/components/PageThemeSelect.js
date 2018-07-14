@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import {connect} from 'react-redux';
 import {onThemeChange} from '../store/action-creators/change-theme';
-import {themes} from '../store/state/themes';
+import {themes} from '../state/themes';
 import animations from '../styles/Animations.scss';
 import styles from '../styles/ThemeSelect.scss';
 import {BlockIconApply} from './BlockIconApply';
