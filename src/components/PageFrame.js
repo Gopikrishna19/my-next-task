@@ -7,7 +7,11 @@ import {ProviderTheme} from './ProviderTheme';
 
 const setElevationOnScroll = (element, component) => {
   element.onscroll = () => {
-    component.setState({elevated: element.scrollTop > 1});
+    const elevated = element.scrollTop > 1;
+
+    if (component.state.elevated !== elevated) {
+      component.setState({elevated});
+    }
   };
 };
 
