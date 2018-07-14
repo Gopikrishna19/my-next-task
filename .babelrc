@@ -2,6 +2,7 @@
   "plugins": [
     "syntax-dynamic-import",
     "transform-object-rest-spread",
+    "transform-class-properties",
     "react-hot-loader/babel"
   ],
   "presets": [

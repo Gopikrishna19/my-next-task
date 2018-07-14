@@ -5,27 +5,6 @@ import {conditionalClassName, join} from '../utils/class-names';
 import {BlockButtonNav} from './BlockButtonNav';
 import {ProviderTheme} from './ProviderTheme';
 
-const setElevationOnScroll = (element, component) => {
-  element.onscroll = () => {
-    const elevated = element.scrollTop > 1;
-
-    if (component.state.elevated !== elevated) {
-      component.setState({elevated});
-    }
-  };
-};
-
-const setFocus = element => {
-  element.focus();
-};
-
-const setEvents = component => element => {
-  if (element) {
-    setFocus(element);
-    setElevationOnScroll(element, component);
-  }
-};
-
 export class PageFrame extends React.Component {
   constructor() {
     super();
@@ -34,6 +13,27 @@ export class PageFrame extends React.Component {
       elevated: false
     };
   }
+
+  setElevationOnScroll = element => {
+    element.onscroll = () => {
+      const elevated = element.scrollTop > 1;
+
+      if (this.state.elevated !== elevated) {
+        this.setState({elevated});
+      }
+    };
+  };
+
+  setFocus = element => {
+    element.focus();
+  };
+
+  setEvents = element => {
+    if (element) {
+      this.setFocus(element);
+      this.setElevationOnScroll(element);
+    }
+  };
 
   render() {
     return (
@@ -47,7 +47,7 @@ export class PageFrame extends React.Component {
             {this.props.controls}
           </header>
           <main
-            ref={setEvents(this)}
+            ref={this.setEvents}
             className={join(this.props.className, styles.content)}
             tabIndex={-1}
           >

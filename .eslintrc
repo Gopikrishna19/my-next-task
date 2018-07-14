@@ -10,6 +10,7 @@
     "build": true
   },
   "plugins": [
+    "babel",
     "react"
   ],
   "parser": "babel-eslint",
@@ -20,6 +21,7 @@
     }
   },
   "rules": {
+    "no-invalid-this": 0,
     "no-multiple-empty-lines": [
       2,
       {
@@ -32,6 +34,7 @@
       2,
       "never"
     ],
-    "sort-imports": 0
+    "sort-imports": 0,
+    "babel/no-invalid-this": 2
   }
 }
