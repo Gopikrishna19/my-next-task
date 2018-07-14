@@ -15,4 +15,6 @@ $ProviderTheme.propTypes = {
   theme: PropTypes.string.isRequired
 };
 
-export const ProviderTheme = connect(state => ({theme: state.theme}))($ProviderTheme);
+export const ProviderTheme = connect(
+  state => ({theme: state.theme})
+)($ProviderTheme);

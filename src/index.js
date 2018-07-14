@@ -1,8 +1,8 @@
 import React from 'react';
 import {render} from 'react-dom';
 import {auth} from './firebase';
-import progressive from './progressive';
 import './index.scss';
+import progressive from './progressive';
 
 const host = document.getElementById('app');
 let renderComponent;

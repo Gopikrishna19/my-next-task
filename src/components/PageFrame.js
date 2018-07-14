@@ -6,14 +6,6 @@ import {BlockButtonNav} from './BlockButtonNav';
 import {ProviderTheme} from './ProviderTheme';
 
 export class PageFrame extends React.Component {
-  constructor() {
-    super();
-
-    this.state = {
-      elevated: false
-    };
-  }
-
   setElevationOnScroll = element => {
     element.onscroll = () => {
       const elevated = element.scrollTop > 1;
@@ -36,6 +28,14 @@ export class PageFrame extends React.Component {
       this.setElevationOnScroll(element);
     }
   };
+
+  constructor() {
+    super();
+
+    this.state = {
+      elevated: false
+    };
+  }
 
   render() {
     return (

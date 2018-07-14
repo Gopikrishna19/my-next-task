@@ -39,4 +39,6 @@ $PageListTodo.propTypes = {
   todos: PropTypes.array.isRequired
 };
 
-export const PageListTodo = connect(state => ({todos: state.todos}))($PageListTodo);
+export const PageListTodo = connect(
+  state => ({todos: state.todos})
+)($PageListTodo);

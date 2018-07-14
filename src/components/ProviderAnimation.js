@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import {TransitionGroup, CSSTransition} from 'react-transition-group';
+import {CSSTransition, TransitionGroup} from 'react-transition-group';
 
 export const ProviderAnimation = props =>
   <TransitionGroup component={null}>
