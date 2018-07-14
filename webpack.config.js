@@ -49,7 +49,8 @@ module.exports = (env, {mode}) => {
     },
     output: {
       filename: '[id].index.js',
-      path: path.join(__dirname, 'public')
+      path: path.join(__dirname, 'public'),
+      publicPath: '/'
     },
     plugins: [
       new HTMLWebpackPlugin({
