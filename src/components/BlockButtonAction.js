@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styles from '../styles/Buttons.scss';
 import iconStyles from '../styles/Icons.scss';
+import {join} from '../utils/class-names';
 
 export const BlockButtonAction = props => {
   const {as: Button, icon: Icon, children, ...rest} = props;
@@ -9,7 +10,7 @@ export const BlockButtonAction = props => {
   return (
     <Button
       {...rest}
-      className={styles.buttonAction}
+      className={join(styles.buttonAction, rest.className)}
     >
       {Icon && <Icon className={iconStyles.iconBody}/>}
       {children && <span className={styles.buttonActionText}>{children}</span>}

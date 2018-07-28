@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import styles from '../styles/Buttons.scss';
+import {join} from '../utils/class-names';
 
 export const BlockButtonOutline = props => {
   const {as: Button, ...rest} = props;
@@ -8,7 +9,7 @@ export const BlockButtonOutline = props => {
   return (
     <Button
       {...rest}
-      className={styles.buttonOutline}
+      className={join(styles.buttonOutline, rest.className)}
     />
   );
 };
