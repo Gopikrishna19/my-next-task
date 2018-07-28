@@ -18,7 +18,7 @@ BlockButtonNoFootprint.propTypes = {
   as: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.func
-  ]),
+  ])
 };
 BlockButtonNoFootprint.defaultProps = {
   as: 'button'

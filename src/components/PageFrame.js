@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, {Component} from 'react';
 import styles from '../styles/PageFrame.scss';
 import {conditionalClassName, join} from '../utils/class-names';
 import {BlockButtonNav} from './BlockButtonNav';
 
-export class PageFrame extends React.Component {
+export class PageFrame extends Component {
   setElevationOnScroll = element => {
     element.onscroll = () => {
       const elevated = element.scrollTop > 1;

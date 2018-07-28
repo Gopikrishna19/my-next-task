@@ -2,5 +2,5 @@ export const pages = {
   $home: '/',
   listShopping: '/list-shopping',
   listTodo: '/list-todo',
-  listTodoAddItem: '/list-todo/add',
+  listTodoAddItem: '/list-todo/add'
 };

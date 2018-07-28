@@ -4,7 +4,7 @@ export const Status = t.Object({
   completed: 'completed',
   defined: 'defined',
   inProgress: 'in-progress',
-  onHold: 'on-hold',
+  onHold: 'on-hold'
 });
 
 export const Todo = t.struct({
