@@ -1,9 +1,34 @@
 @import "variables";
 
+.todoList {
+  display: flex;
+  flex-direction: column;
+}
+
+.iconGrouped {
+  fill: $toggle-icon-enabled
+}
+
+.iconUnGrouped {
+  fill: $toggle-icon-disabled
+}
+
+.listSplitter {
+  display: none;
+  margin: $gutter-large 0 $gutter-small $gutter-large;
+}
+
 .todoItemTask {
-  margin-left: $gutter-large;
+  margin: $gutter-small 0 $gutter-small $gutter-large;
   padding: $gutter-large $gutter $gutter-large $gutter-large*2;
   position: relative;
+
+  &.completed {
+    background: none;
+    box-shadow: none;
+    color: $status-completed;
+    text-decoration: line-through;
+  }
 }
 
 .statusToggle {
@@ -15,4 +40,46 @@
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
+
+  &.completed {
+    background-color: $body-background;
+  }
+}
+
+.todoList.grouped {
+  .todoItemTask.completed {
+    order: 4;
+  }
+
+  .todoItemTask.onHold {
+    order: 3;
+  }
+
+  .todoItemTask.inProgress {
+    order: 2;
+  }
+
+  .todoItemTask.defined {
+    order: 1;
+  }
+
+  .listSplitter {
+    display: block;
+  }
+
+  .listSplitter.completed {
+    order: 4;
+  }
+
+  .listSplitter.onHold {
+    order: 3;
+  }
+
+  .listSplitter.inProgress {
+    order: 2;
+  }
+
+  .listSplitter.defined {
+    order: 1;
+  }
 }

@@ -21,4 +21,7 @@ $gutter-large: 25px;
 $status-defined: #888;
 $status-in-progress: #080;
 $status-on-hold: #f00;
-$status-completed: #080;
+$status-completed: #888;
+
+$toggle-icon-disabled: $card-border;
+$toggle-icon-enabled: $card-foreground;
