@@ -18,8 +18,8 @@ import {PageFrame} from './PageFrame';
 
 const groupSortOrder = [
   Status.defined,
-  Status.onHold,
   Status.inProgress,
+  Status.onHold,
   Status.completed
 ];
 const groupTitles = {
