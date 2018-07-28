@@ -11,11 +11,15 @@ const handleClick = props => () => {
 };
 
 export const BlockStatusToggle = props =>
-  <BlockButtonNoFootprint onClick={handleClick(props)}>
+  <BlockButtonNoFootprint
+    className={props.className}
+    onClick={handleClick(props)}
+  >
     {props.statuses.get(props.status)}
   </BlockButtonNoFootprint>;
 
 BlockStatusToggle.propTypes = {
+  className: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   status: PropTypes.string.isRequired,
   statuses: PropTypes.instanceOf(Map).isRequired

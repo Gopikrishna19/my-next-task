@@ -4,24 +4,21 @@ import {statusPills} from '../state/todo-status-pills';
 import {Todo} from '../state/Todos';
 import styles from '../styles/Todos.scss';
 import {BlockCard} from './BlockCard';
-import {BlockSplitter} from './BlockSplitter';
 import {BlockStatusToggle} from './BlockStatusToggle';
 
 const handleStatusChange = props => status => props.onStatusChange(props.index, status);
 
 export const BlockTodoItem = props =>
-  <BlockCard>
-    <div className={styles.todoItemTask}>
+  <BlockCard className={styles.todoItemTask}>
+    <div>
       {props.todo.task}
     </div>
-    <BlockSplitter/>
-    <div className={styles.todoItemControls}>
-      <BlockStatusToggle
-        onChange={handleStatusChange(props)}
-        status={props.todo.status}
-        statuses={statusPills}
-      />
-    </div>
+    <BlockStatusToggle
+      className={styles.statusToggle}
+      onChange={handleStatusChange(props)}
+      status={props.todo.status}
+      statuses={statusPills}
+    />
   </BlockCard>;
 
 BlockTodoItem.propTypes = {
