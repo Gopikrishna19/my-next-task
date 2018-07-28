@@ -3,7 +3,6 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {pages} from '../state/routes';
-import {statusClasses} from '../state/todo-status-class-names';
 import {Status} from '../state/Todos';
 import {updateTodoStatus} from '../store/action-creators/todo';
 import animations from '../styles/Animations.scss';
@@ -11,11 +10,26 @@ import styles from '../styles/Todos.scss';
 import {backButton} from '../utils/buttons';
 import {conditionalClassName, join} from '../utils/class-names';
 import {BlockButtonAction} from './BlockButtonAction';
+import {BlockGroupBy} from './BlockGroupBy';
 import {BlockIconAdd} from './BlockIconAdd';
 import {BlockIconGroup} from './BlockIconGroup';
-import {BlockListSplitter} from './BlockListSplitter';
 import {BlockTodoItem} from './BlockTodoItem';
 import {PageFrame} from './PageFrame';
+
+const groupSortOrder = [
+  Status.defined,
+  Status.onHold,
+  Status.inProgress,
+  Status.completed
+];
+const groupTitles = {
+  [Status.defined]: null,
+  [Status.onHold]: 'On Hold',
+  [Status.inProgress]: 'In Progress',
+  [Status.completed]: 'Completed'
+};
+const groupSort = (group1, group2) => groupSortOrder.indexOf(group1) - groupSortOrder.indexOf(group2);
+const groupTitle = group => groupTitles[group];
 
 class $PageListTodo extends Component {
   constructor() {
@@ -48,32 +62,28 @@ class $PageListTodo extends Component {
         title='Todo List'
         titleNavButtonProps={backButton()}
       >
-        <BlockListSplitter
-          className={join(styles.listSplitter, statusClasses[Status.onHold])}
-          title='On Hold'
-        />
-        <BlockListSplitter
-          className={join(styles.listSplitter, statusClasses[Status.inProgress])}
-          title='In Progress'
-        />
-        <BlockListSplitter
-          className={join(styles.listSplitter, statusClasses[Status.completed])}
-          title='Completed'
-        />
-        {
-          this.props.todos.map((todo, index) =>
-            <BlockTodoItem
-              index={index}
-              key={index}
-              onStatusChange={this.props.updateTodoStatus}
-              todo={todo}
-            />
-          )
-        }
+        <BlockGroupBy
+          by='status'
+          list={this.props.todos}
+          shouldGroup={this.state.isGrouped}
+          sort={groupSort}
+          splitterClassName={styles.listSplitter}
+          title={groupTitle}
+        >
+          {
+            ({index, item}) =>
+              <BlockTodoItem
+                index={this.props.todos.indexOf(item)}
+                key={index}
+                onStatusChange={this.props.updateTodoStatus}
+                todo={item}
+              />
+          }
+        </BlockGroupBy>
       </PageFrame>
     );
   }
-}
+};
 
 $PageListTodo.propTypes = {
   todos: PropTypes.array.isRequired,

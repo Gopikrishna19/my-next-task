@@ -15,6 +15,7 @@
 
 .listSplitter {
   display: none;
+  font-variant: small-caps;
   margin: $gutter-large 0 $gutter-small $gutter-large;
 }
 
@@ -47,39 +48,39 @@
 }
 
 .todoList.grouped {
-  .todoItemTask.completed {
-    order: 4;
-  }
-
-  .todoItemTask.onHold {
-    order: 3;
-  }
-
-  .todoItemTask.inProgress {
-    order: 2;
-  }
-
-  .todoItemTask.defined {
-    order: 1;
-  }
-
+  //.todoItemTask.completed {
+  //  order: 4;
+  //}
+  //
+  //.todoItemTask.onHold {
+  //  order: 3;
+  //}
+  //
+  //.todoItemTask.inProgress {
+  //  order: 2;
+  //}
+  //
+  //.todoItemTask.defined {
+  //  order: 1;
+  //}
+  //
   .listSplitter {
     display: block;
   }
-
-  .listSplitter.completed {
-    order: 4;
-  }
-
-  .listSplitter.onHold {
-    order: 3;
-  }
-
-  .listSplitter.inProgress {
-    order: 2;
-  }
-
-  .listSplitter.defined {
-    order: 1;
-  }
+  //
+  //.listSplitter.completed {
+  //  order: 4;
+  //}
+  //
+  //.listSplitter.onHold {
+  //  order: 3;
+  //}
+  //
+  //.listSplitter.inProgress {
+  //  order: 2;
+  //}
+  //
+  //.listSplitter.defined {
+  //  order: 1;
+  //}
 }

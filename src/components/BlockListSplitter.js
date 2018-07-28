@@ -4,11 +4,12 @@ import styles from '../styles/Trinkets.scss';
 import {join} from '../utils/class-names';
 
 export const BlockListSplitter = props =>
-  <div className={join(styles.listSplitter, props.className)}>
-    {props.title}
-  </div>;
+  props.title ?
+    <div className={join(styles.listSplitter, props.className)}>
+      {props.title}
+    </div> : null;
 
 BlockListSplitter.propTypes = {
   className: PropTypes.string,
-  title: PropTypes.string.isRequired
+  title: PropTypes.string
 };
