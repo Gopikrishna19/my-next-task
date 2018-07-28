@@ -3,5 +3,4 @@ export const pages = {
   listShopping: '/list-shopping',
   listTodo: '/list-todo',
   listTodoAddItem: '/list-todo/add',
-  themeSelect: '/theme-select'
 };

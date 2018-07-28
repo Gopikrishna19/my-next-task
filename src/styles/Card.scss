@@ -2,9 +2,9 @@
 
 .card {
   background-color: $card-background;
-  border-radius: 2px;
-  box-shadow: $elevate-1;
+  border: 1px solid #e3e7ee;
+  box-shadow: $elevate-4;
   color: $card-foreground;
-  margin: $gutter-large 0;
-  padding: $gutter;
+  margin: $gutter 0;
+  padding: $gutter-large;
 }

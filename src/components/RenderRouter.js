@@ -6,7 +6,6 @@ import {PageHome} from './PageHome';
 import {PageListShopping} from './PageListShopping';
 import {PageListTodo} from './PageListTodo';
 import {PageListTodoAddItem} from './PageListTodoAddItem';
-import {PageThemeSelect} from './PageThemeSelect';
 
 export const RenderRouter = props =>
   <Switch location={props.location}>
@@ -14,7 +13,6 @@ export const RenderRouter = props =>
     <Route exact path={pages.listShopping} component={PageListShopping}/>
     <Route exact path={pages.listTodo} component={PageListTodo}/>
     <Route exact path={pages.listTodoAddItem} component={PageListTodoAddItem}/>
-    <Route exact path={pages.themeSelect} component={PageThemeSelect}/>
   </Switch>;
 
 RenderRouter.propTypes = {
