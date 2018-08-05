@@ -17,9 +17,9 @@ export const BlockInputText = React.forwardRef((props, ref) => {
     <label className={styles.inputTextWrapper}>
       <input
         {...rest}
+        className={styles.inputText}
         onKeyUp={handleEnter(onEnter, onKeyUp)}
         ref={ref}
-        className={styles.inputText}
         required
       />
       <span className={styles.inputTextPlaceholder}>{placeholder}</span>

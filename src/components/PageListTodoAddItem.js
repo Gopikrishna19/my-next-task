@@ -37,15 +37,15 @@ class $PageListTodoAddItem extends Component {
   render() {
     return (
       <PageFrame
-        pageAnimationClassName={animations.slideIn}
         controls={[
           <BlockButtonAction
-            onClick={this.addTodo}
             key='add'
+            onClick={this.addTodo}
           >
             Add
           </BlockButtonAction>
         ]}
+        pageAnimationClassName={animations.slideIn}
         requestFocus={true}
         title='Add an item to do'
         titleNavButtonProps={backButton(BlockIconCancel)}
@@ -54,8 +54,8 @@ class $PageListTodoAddItem extends Component {
           autoFocus={true}
           onChange={this.updateTask}
           onEnter={this.addTodo}
-          ref={this.setTaskInput}
           placeholder='Enter task'
+          ref={this.setTaskInput}
           value={this.state.todo.task}
         />
       </PageFrame>

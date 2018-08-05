@@ -43,8 +43,8 @@ export class PageFrame extends Component {
           {this.props.controls}
         </header>
         <main
-          ref={this.setEvents}
           className={join(this.props.className, styles.content)}
+          ref={this.setEvents}
           tabIndex={-1}
         >
           {this.props.children}

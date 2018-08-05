@@ -7,8 +7,8 @@ import iconStyles from '../styles/Icons.scss';
 import {Status} from './Todos';
 
 export const statusPills = new Map([
-  [Status.defined, <BlockIconStatusDefined key='defined' className={iconStyles.iconStatusDefined}/>],
-  [Status.inProgress, <BlockIconStatusInProgress key='inProgress' className={iconStyles.iconStatusInProgress}/>],
-  [Status.onHold, <BlockIconStatusOnHold key='onHold' className={iconStyles.iconStatusOnHold}/>],
-  [Status.completed, <BlockIconStatusCompleted key='completed' className={iconStyles.iconStatusCompleted}/>]
+  [Status.defined, <BlockIconStatusDefined className={iconStyles.iconStatusDefined} key='defined'/>],
+  [Status.inProgress, <BlockIconStatusInProgress className={iconStyles.iconStatusInProgress} key='inProgress'/>],
+  [Status.onHold, <BlockIconStatusOnHold className={iconStyles.iconStatusOnHold} key='onHold'/>],
+  [Status.completed, <BlockIconStatusCompleted className={iconStyles.iconStatusCompleted} key='completed'/>]
 ]);

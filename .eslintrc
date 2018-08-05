@@ -35,6 +35,8 @@
       "never"
     ],
     "sort-imports": 0,
-    "babel/no-invalid-this": 2
+    "babel/no-invalid-this": 2,
+    "react/jsx-sort-props": 2,
+    "react/sort-comp": 2
   }
 }

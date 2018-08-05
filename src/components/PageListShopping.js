@@ -8,13 +8,13 @@ import {PageFrame} from './PageFrame';
 
 export const PageListShopping = () =>
   <PageFrame
-    pageAnimationClassName={animations.slideIn}
     controls={[
       <BlockButtonAction
         icon={BlockIconAdd}
         key='add'
       />
     ]}
+    pageAnimationClassName={animations.slideIn}
     title='Shopping List'
     titleNavButtonProps={backButton()}
   >

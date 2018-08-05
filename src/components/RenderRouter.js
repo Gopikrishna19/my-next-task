@@ -9,10 +9,10 @@ import {PageListTodoAddItem} from './PageListTodoAddItem';
 
 export const RenderRouter = props =>
   <Switch location={props.location}>
-    <Route exact path={pages.$home} component={PageHome}/>
-    <Route exact path={pages.listShopping} component={PageListShopping}/>
-    <Route exact path={pages.listTodo} component={PageListTodo}/>
-    <Route exact path={pages.listTodoAddItem} component={PageListTodoAddItem}/>
+    <Route component={PageHome} exact path={pages.$home}/>
+    <Route component={PageListShopping} exact path={pages.listShopping}/>
+    <Route component={PageListTodo} exact path={pages.listTodo}/>
+    <Route component={PageListTodoAddItem} exact path={pages.listTodoAddItem}/>
   </Switch>;
 
 RenderRouter.propTypes = {
