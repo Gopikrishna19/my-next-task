@@ -5,8 +5,8 @@ import {noOp} from '../utils/helpers';
 import {BlockListSplitter} from './BlockListSplitter';
 
 const renderChild = props =>
-  (item, index) => props.children({
-    index,
+  item => props.children({
+    index: props.list.indexOf(item),
     item
   });
 

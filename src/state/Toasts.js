@@ -1,4 +1,4 @@
-import t from 'tcomb';
+import * as t from 'tcomb';
 
 export const Toasts = t.list(t.String, 'Toasts');
 

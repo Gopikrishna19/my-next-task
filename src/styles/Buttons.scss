@@ -16,7 +16,23 @@
   }
 }
 
-.buttonActionText {
+.buttonMenuItem {
+  align-items: center;
+  background: none;
+  border: none;
+  display: flex;
+  padding: 16px 24px;
+  transition: transition();
+  width: 100%;
+
+  &:active {
+    background-color: $body-shade;
+    border-color: $body-shade;
+  }
+}
+
+.buttonActionText,
+.buttonMenuItemText {
   height: 24px;
   line-height: 24px;
 }

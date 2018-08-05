@@ -11,17 +11,23 @@ export const addTodo = todo =>
     dispatch(showToast('Added a to do item'));
   };
 
-export const updateTodo = (index, todo) => ({
-  index,
-  todo,
-  type: actions.TODOS_UPDATE
+export const toggleAllTodos = selection => ({
+  selection,
+  type: actions.TODOS_UPDATE_SELECTION_OF_ALL
 });
 
-export const updateTodoStatus = (index, status) =>
-  dispatch => {
-    dispatch({
-      index,
-      status,
-      type: actions.TODOS_UPDATE_STATUS
-    });
-  };
+export const toggleTodo = index => ({
+  index,
+  type: actions.TODOS_UPDATE_SELECTION
+});
+
+export const updateSelectedTodosStatus = status => ({
+  status,
+  type: actions.TODOS_UPDATE_STATUS_OF_SELECTED
+});
+
+export const updateTodoStatus = (index, status) => ({
+  index,
+  status,
+  type: actions.TODOS_UPDATE_STATUS
+});

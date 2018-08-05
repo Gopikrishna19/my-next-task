@@ -15,6 +15,20 @@
   fill: $card-foreground;
 }
 
+.iconGrouped {
+  fill: $toggle-icon-enabled
+}
+
+.iconUnGrouped {
+  fill: $toggle-icon-disabled
+}
+
+.iconMenu {
+  composes: icon;
+  fill: $card-foreground;
+  margin-right: 20px;
+}
+
 .iconStatusDefined {
   composes: icon;
   fill: $status-defined;

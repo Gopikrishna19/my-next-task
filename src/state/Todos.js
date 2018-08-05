@@ -1,4 +1,4 @@
-import t from 'tcomb';
+import * as t from 'tcomb';
 
 export const Status = t.Object({
   completed: 'completed',
@@ -26,10 +26,18 @@ export const defaultTodos = new Todos([]);
 Todo.prototype.unlock = function () {
   return JSON.parse(JSON.stringify(this));
 };
-Todo.prototype.toggle = function (selection = !this.isSelected) {
+Todo.prototype.toggleSelection = function (selection = !this.isSelected) {
   return Todo.update(this, {isSelected: {$set: selection}});
 };
 
 Todos.addTodo = (todos, todo) => Todos.update(todos, {$unshift: [todo]});
-Todos.updateTodo = (todos, index, todo) => Todos.update(todos, {$merge: {[index]: todo}});
+Todos.updateAllTodosSelection = (todos, selection) => new Todos(todos.map(todo => todo.toggleSelection(selection)));
+Todos.updateTodoSelection = (todos, index, selection) => Todos.update(todos, {$merge: {[index]: todos[index].toggleSelection(selection)}});
 Todos.updateTodoStatus = (todos, index, status) => Todos.update(todos, {[index]: {$merge: {status}}});
+Todos.updateSelectedTodosStatus = (todos, status) => Todos.update(
+  todos,
+  todos.reduce((query, todo, index) => todo.isSelected ? ({
+    ...query,
+    [index]: {$merge: {status}}
+  }) : query, {})
+);

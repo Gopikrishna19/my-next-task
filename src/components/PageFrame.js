@@ -35,7 +35,13 @@ export class PageFrame extends Component {
   render() {
     return (
       <section className={join(styles.pageFrame, this.props.pageAnimationClassName)}>
-        <header className={join(styles.header, conditionalClassName(this.state.elevated, styles.elevated))}>
+        <header
+          className={join(
+            styles.header,
+            conditionalClassName(this.state.elevated, styles.elevated),
+            conditionalClassName(this.props.highlighted, styles.highlighted)
+          )}
+        >
           <BlockButtonNav applyProps={this.props.titleNavButtonProps}/>
           <div className={styles.title}>
             {this.props.title}
@@ -58,13 +64,13 @@ PageFrame.propTypes = {
   children: PropTypes.any,
   className: PropTypes.string,
   controls: PropTypes.any,
+  highlighted: PropTypes.bool,
   pageAnimationClassName: PropTypes.string,
   requestFocus: PropTypes.bool,
   title: PropTypes.string,
   titleNavButtonProps: PropTypes.func
 };
 PageFrame.defaultProps = {
-  hasBackButton: false,
   requestFocus: false,
   title: 'My Next Task'
 };
