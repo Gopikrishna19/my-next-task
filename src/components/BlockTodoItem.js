@@ -3,9 +3,12 @@ import React from 'react';
 import {statusClasses} from '../state/todo-status-class-names';
 import {statusPills} from '../state/todo-status-pills';
 import {Todo} from '../state/Todos';
+import iconStyles from '../styles/Icons.scss';
 import styles from '../styles/Todos.scss';
 import {conditionalClassName, join} from '../utils/class-names';
 import {BlockCard} from './BlockCard';
+import {BlockIconSelected} from './BlockIconSelected';
+import {BlockIconShell} from './BlockIconShell';
 import {BlockLongPress} from './BlockLongPress';
 import {BlockStatusToggle} from './BlockStatusToggle';
 
@@ -25,14 +28,17 @@ export const BlockTodoItem = props =>
       )}
     >
       {props.todo.task}
-      {props.todo.isSelected ?
-        null :
-        <BlockStatusToggle
-          className={join(styles.statusToggle, statusClasses[props.todo.status])}
-          onChange={handleStatusChange(props)}
-          status={props.todo.status}
-          statuses={statusPills}
-        />
+      {
+        props.isLongClickDisabled ?
+          <div className={styles.statusToggle}>
+            {props.todo.isSelected ? <BlockIconSelected className={iconStyles.iconCard}/> : <BlockIconShell/>}
+          </div> :
+          <BlockStatusToggle
+            className={join(styles.statusToggle, statusClasses[props.todo.status])}
+            onChange={handleStatusChange(props)}
+            status={props.todo.status}
+            statuses={statusPills}
+          />
       }
     </BlockCard>
   </BlockLongPress>;
