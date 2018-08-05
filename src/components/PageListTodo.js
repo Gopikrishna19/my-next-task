@@ -53,6 +53,11 @@ class $PageListTodo extends Component {
     onClick: this.exitSelectionMode
   });
 
+  deleteSelectedTodos = () => {
+    this.props.deleteSelectedTodos();
+    this.exitSelectionMode();
+  };
+
   enterSelectionMode = index => () => {
     this.setState({selectionMode: true});
     this.props.toggleTodo(index);
@@ -70,10 +75,9 @@ class $PageListTodo extends Component {
       onClick={this.selectAllTodos}
     />,
     <BlockButtonAction
-      as={Link}
       icon={BlockIconDelete}
       key='add'
-      to={pages.listTodoAddItem}
+      onClick={this.deleteSelectedTodos}
     />,
     <BlockMoreMenu key='more'>
       <BlockButtonMenuItem
@@ -139,7 +143,7 @@ class $PageListTodo extends Component {
         className={join(styles.todoList, conditionalClassName(this.state.isGrouped, styles.grouped))}
         controls={this.getControls()}
         pageAnimationClassName={animations.slideIn}
-        title='Todo List'
+        title={this.state.selectionMode ? 'Edit Todo List' : 'Todo List'}
         titleNavButtonProps={this.getTitleNavButton()}
       >
         <BlockGroupBy
@@ -169,6 +173,7 @@ class $PageListTodo extends Component {
 }
 
 $PageListTodo.propTypes = {
+  deleteSelectedTodos: PropTypes.func.isRequired,
   todos: PropTypes.array.isRequired,
   toggleAllTodos: PropTypes.func.isRequired,
   toggleTodo: PropTypes.func.isRequired,

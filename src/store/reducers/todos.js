@@ -4,6 +4,7 @@ import {actions} from '../actions';
 
 const handlers = {
   [actions.TODOS_ADD]: (state, action) => Todos.addTodo(state, action.todo),
+  [actions.TODOS_DELETE_SELECTED]: state => new Todos(state.filter(todo => !todo.isSelected)),
   [actions.TODOS_POPULATE]: (state, action) => new Todos(action.todos),
   [actions.TODOS_UPDATE_SELECTION]: (state, action) => Todos.updateTodoSelection(state, action.index),
   [actions.TODOS_UPDATE_SELECTION_OF_ALL]: (state, action) => Todos.updateAllTodosSelection(state, action.selection),

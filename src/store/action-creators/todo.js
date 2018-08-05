@@ -11,6 +11,10 @@ export const addTodo = todo =>
     dispatch(showToast('Added a to do item'));
   };
 
+export const deleteSelectedTodos = () => ({
+  type: actions.TODOS_DELETE_SELECTED
+});
+
 export const toggleAllTodos = selection => ({
   selection,
   type: actions.TODOS_UPDATE_SELECTION_OF_ALL
