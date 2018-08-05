@@ -11,6 +11,10 @@ import {BlockInputText} from './BlockInputText';
 import {PageFrame} from './PageFrame';
 
 class $PageListTodoAddItem extends Component {
+  state = {
+    todo: defaultTodo.unlock()
+  };
+
   addTodo = () => {
     if (this.state.todo.task.trim()) {
       this.props.addTodo(this.state.todo);
@@ -29,14 +33,6 @@ class $PageListTodoAddItem extends Component {
       task: event.target.value
     }
   });
-
-  constructor() {
-    super();
-
-    this.state = {
-      todo: defaultTodo.unlock()
-    };
-  }
 
   render() {
     return (

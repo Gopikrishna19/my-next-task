@@ -5,6 +5,10 @@ import {conditionalClassName, join} from '../utils/class-names';
 import {BlockButtonNav} from './BlockButtonNav';
 
 export class PageFrame extends Component {
+  state = {
+    elevated: false
+  };
+
   setElevationOnScroll = element => {
     element.onscroll = () => {
       const elevated = element.scrollTop > 1;
@@ -27,14 +31,6 @@ export class PageFrame extends Component {
       this.setElevationOnScroll(element);
     }
   };
-
-  constructor() {
-    super();
-
-    this.state = {
-      elevated: false
-    };
-  }
 
   render() {
     return (

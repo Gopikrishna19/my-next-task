@@ -32,11 +32,9 @@ const groupSort = (group1, group2) => groupSortOrder.indexOf(group1) - groupSort
 const groupTitle = group => groupTitles[group];
 
 class $PageListTodo extends Component {
-  constructor() {
-    super();
-
-    this.state = {isGrouped: true};
-  }
+  state = {
+    isGrouped: true
+  };
 
   toggleGroup = () => this.setState({isGrouped: !this.state.isGrouped});
 

@@ -13,6 +13,8 @@ const defaultState = {
 };
 
 class $RenderToasts extends Component {
+  state = defaultState;
+
   removeToastAfterTime = () => setTimeout(() => {
     this.props.hideOldestToast();
   }, Timeout);
@@ -31,12 +33,6 @@ class $RenderToasts extends Component {
       }));
     }
   };
-
-  constructor() {
-    super();
-
-    this.state = defaultState;
-  }
 
   render() {
     const toast = this.props.toasts[0];
