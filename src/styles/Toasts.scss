@@ -1,10 +1,11 @@
+@import "functions";
 @import "variables";
 
 .toast {
   background-color: $body-foreground;
   border-radius: 4px;
   bottom: $gutter-large * 2;
-  box-shadow: $elevate-3;
+  box-shadow: elevate-3();
   color: $body-background;
   left: 50%;
   padding: $gutter;

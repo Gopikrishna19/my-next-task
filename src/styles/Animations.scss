@@ -1,3 +1,4 @@
+@import "functions";
 @import "variables";
 
 .slideIn {
@@ -8,7 +9,7 @@
   &:global(.frame-enter) {
     z-index: 2;
     left: $leftOut;
-    box-shadow: $elevate-5;
+    box-shadow: elevate-5();
   }
 
   &:global(.frame-enter.frame-enter-active) {
@@ -22,7 +23,7 @@
   }
 
   &:global(.frame-exit) {
-    box-shadow: $elevate-5;
+    box-shadow: elevate-5();
     left: $leftIn;
     z-index: 2;
   }

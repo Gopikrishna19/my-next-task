@@ -1,10 +1,11 @@
+@import "functions";
 @import "variables";
 
 .card {
   background-color: $card-background;
   border: 1px solid $card-border;
   border-radius: 4px;
-  box-shadow: $elevate-4;
+  box-shadow: elevate-4();
   color: $card-foreground;
   margin: $gutter 0;
   padding: $gutter;

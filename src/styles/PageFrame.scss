@@ -1,3 +1,4 @@
+@import "functions";
 @import "variables";
 
 .pageFrame {
@@ -21,7 +22,11 @@
 }
 
 .header.elevated {
-  box-shadow: $elevate-2;
+  box-shadow: elevate-2();
+}
+
+.header.highlighted {
+  background-color: $card-border;
 }
 
 .title {
