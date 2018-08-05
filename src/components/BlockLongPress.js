@@ -3,7 +3,6 @@ import React, {Component} from 'react';
 import styles from '../styles/Trinkets.scss';
 
 const longPressTimeout = 500;
-const vibrateDuration = 20;
 
 export class BlockLongPress extends Component {
   timer = null;
@@ -21,13 +20,7 @@ export class BlockLongPress extends Component {
 
   startPressing = () => {
     if (!this.props.isDisabled && !this.timer) {
-      this.timer = setTimeout(
-        () => {
-          navigator.vibrate(vibrateDuration);
-          this.props.onLongClick();
-        },
-        longPressTimeout
-      );
+      this.timer = setTimeout(() => this.props.onLongClick(), longPressTimeout);
     }
   };
 
