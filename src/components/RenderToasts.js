@@ -5,28 +5,27 @@ import {hideOldestToast} from '../store/action-creators/toast';
 import styles from '../styles/Toasts.scss';
 import {join} from '../utils/class-names';
 
-const Timeout = 5000;
-const AnimationTimeout = 300;
+const animationTimeout = 300;
+const charactersPerSecond = 15;
 const defaultState = {
   activeClass: styles.entered,
   isTimersRunning: false
 };
+const toSecond = 1000;
 
 class $RenderToasts extends Component {
   state = defaultState;
 
-  removeToastAfterTime = () => setTimeout(() => {
-    this.props.hideOldestToast();
-  }, Timeout);
+  startTimers = toast => {
+    const timeout = toast.length / charactersPerSecond * toSecond;
 
-  startTimers = () => {
     if (!this.state.isTimersRunning) {
-      setTimeout(() => this.setState({activeClass: styles.entered}), AnimationTimeout);
-      setTimeout(() => this.setState({activeClass: styles.exiting}), AnimationTimeout + Timeout);
+      setTimeout(() => this.setState({activeClass: styles.entered}), animationTimeout);
+      setTimeout(() => this.setState({activeClass: styles.exiting}), animationTimeout + timeout);
       setTimeout(() => {
         this.props.hideOldestToast();
         this.setState(defaultState);
-      }, 2 * AnimationTimeout + Timeout);
+      }, 2 * animationTimeout + timeout);
       setTimeout(() => this.setState({
         activeClass: join(styles.enter, styles.entering),
         isTimersRunning: true
@@ -38,7 +37,7 @@ class $RenderToasts extends Component {
     const toast = this.props.toasts[0];
 
     if (toast) {
-      this.startTimers();
+      this.startTimers(toast);
 
       return (
         <div className={join(styles.toast, this.state.activeClass)}>
