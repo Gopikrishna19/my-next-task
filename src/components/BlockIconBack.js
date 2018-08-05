@@ -1,5 +1,5 @@
 import React from 'react';
-import {iconPropTypes} from '../utils/propTypes';
+import {iconPropTypes} from '../utils/prop-types';
 
 export const BlockIconBack = props =>
   <svg className={props.className} viewBox="0 0 24 24">
