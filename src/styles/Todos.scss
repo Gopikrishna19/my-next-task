@@ -30,6 +30,11 @@
     color: $status-completed;
     text-decoration: line-through;
   }
+
+  &.selected {
+    background-color: $card-foreground;
+    color: $card-background;
+  }
 }
 
 .statusToggle {

@@ -8,6 +8,7 @@ export const Status = t.Object({
 });
 
 export const Todo = t.struct({
+  isSelected: t.Boolean,
   status: t.enums.of(Object.values(Status)),
   task: t.String
 }, 'Todo');
@@ -15,6 +16,7 @@ export const Todo = t.struct({
 export const Todos = t.list(Todo, 'Todos');
 
 export const defaultTodo = new Todo({
+  isSelected: false,
   status: 'defined',
   task: ''
 });
@@ -23,6 +25,9 @@ export const defaultTodos = new Todos([]);
 
 Todo.prototype.unlock = function () {
   return JSON.parse(JSON.stringify(this));
+};
+Todo.prototype.toggle = function (selection = !this.isSelected) {
+  return Todo.update(this, {isSelected: {$set: selection}});
 };
 
 Todos.addTodo = (todos, todo) => Todos.update(todos, {$unshift: [todo]});

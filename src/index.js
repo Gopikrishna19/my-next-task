@@ -6,6 +6,8 @@ import progressive from './progressive';
 const host = document.getElementById('app');
 let renderComponent;
 
+document.addEventListener('contextmenu', event => event.preventDefault());
+
 if (build.mode === 'production') {
   progressive.registerWorker();
 

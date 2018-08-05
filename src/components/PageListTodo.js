@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {pages} from '../state/routes';
 import {Status} from '../state/Todos';
-import {updateTodoStatus} from '../store/action-creators/todo';
+import {updateTodo, updateTodoStatus} from '../store/action-creators/todo';
 import animations from '../styles/Animations.scss';
 import styles from '../styles/Todos.scss';
 import {backButton} from '../utils/buttons';
@@ -33,7 +33,17 @@ const groupTitle = group => groupTitles[group];
 
 class $PageListTodo extends Component {
   state = {
-    isGrouped: true
+    isGrouped: true,
+    selectionMode: false
+  };
+
+  enterSelectionMode = (index, todo) => () => {
+    this.setState({selectionMode: true});
+    this.props.updateTodo(index, todo.toggle());
+  };
+
+  selectItem = (index, todo) => () => {
+    this.props.updateTodo(index, todo.toggle());
   };
 
   toggleGroup = () => this.setState({isGrouped: !this.state.isGrouped});
@@ -72,7 +82,10 @@ class $PageListTodo extends Component {
             ({index, item}) =>
               <BlockTodoItem
                 index={this.props.todos.indexOf(item)}
+                isLongClickDisabled={this.state.selectionMode}
                 key={index}
+                onClick={this.selectItem(index, item)}
+                onLongClick={this.enterSelectionMode(index, item)}
                 onStatusChange={this.props.updateTodoStatus}
                 todo={item}
               />
@@ -81,14 +94,18 @@ class $PageListTodo extends Component {
       </PageFrame>
     );
   }
-};
+}
 
 $PageListTodo.propTypes = {
   todos: PropTypes.array.isRequired,
+  updateTodo: PropTypes.func.isRequired,
   updateTodoStatus: PropTypes.func.isRequired
 };
 
 export const PageListTodo = connect(
   state => ({todos: state.todos}),
-  {updateTodoStatus}
+  {
+    updateTodo,
+    updateTodoStatus
+  }
 )($PageListTodo);
