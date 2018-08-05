@@ -68,6 +68,6 @@ $PageListTodoAddItem.propTypes = {
 };
 
 export const PageListTodoAddItem = connect(
-  state => state,
+  null,
   {addTodo}
 )($PageListTodoAddItem);
