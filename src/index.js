@@ -1,7 +1,6 @@
 import React from 'react';
 import {render} from 'react-dom';
 import {auth} from './firebase';
-import progressive from './progressive';
 
 const host = document.getElementById('app');
 let renderComponent;
@@ -9,8 +8,6 @@ let renderComponent;
 document.addEventListener('contextmenu', event => event.preventDefault());
 
 if (build.mode === 'production') {
-  progressive.registerWorker();
-
   renderComponent = Component => render(<Component/>, host);
 } else {
   const {HotApp} = require('./HotApp');
@@ -18,7 +15,7 @@ if (build.mode === 'production') {
   renderComponent = Component => render(<HotApp component={Component}/>, host);
 }
 
-progressive.removeLoader();
+document.getElementById('loader').remove();
 
 const getComponent = function (user) {
   let component;
