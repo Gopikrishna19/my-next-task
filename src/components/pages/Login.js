@@ -4,7 +4,7 @@ import {getStore} from '../../store/index';
 import styles from '../../styles/Login.scss';
 import {PageFrame} from '../blocks/PageFrame';
 import {Outline} from '../buttons/Outline';
-import {Store} from '../providers/Store';
+import {StoreProvider} from '../providers/StoreProvider';
 
 const handleClick = () => {
   const authProvider = new auth.GoogleAuthProvider();
@@ -15,8 +15,8 @@ const handleClick = () => {
 };
 
 export const Login = () =>
-  <Store store={getStore()}>
+  <StoreProvider store={getStore()}>
     <PageFrame className={styles.login}>
       <Outline onClick={handleClick}>Login</Outline>
     </PageFrame>
-  </Store>;
+  </StoreProvider>;

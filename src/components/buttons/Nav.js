@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import {Shell} from '../icons/Shell';
-import {RouteContext} from '../providers/RouteContext';
+import {RouteContext} from '../providers/RouteContextProvider';
 import {Action} from './Action';
 
 export const Nav = props =>

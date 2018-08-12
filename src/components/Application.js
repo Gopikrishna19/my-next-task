@@ -1,22 +1,22 @@
 import React from 'react';
-import {Animation} from './providers/Animation';
-import {RouteContextProvider} from './providers/RouteContext';
-import {Router} from './providers/Router';
-import {Store} from './providers/Store';
-import {Router} from './Router';
 import {Toasts} from './blocks/Toasts';
+import {AnimationProvider} from './providers/AnimationProvider';
+import {RouteContextProvider} from './providers/RouteContextProvider';
+import {RouterProvider} from './providers/RouterProvider';
+import {StoreProvider} from './providers/StoreProvider';
+import {Router} from './Router';
 
 export const Application = () =>
-  <Store>
-    <Router>
+  <StoreProvider>
+    <RouterProvider>
       {
         routeProps =>
           <RouteContextProvider {...routeProps}>
-            <Animation animationKey={routeProps.location.key}>
+            <AnimationProvider animationKey={routeProps.location.key}>
               <Router location={routeProps.location}/>
-            </Animation>
+            </AnimationProvider>
             <Toasts/>
           </RouteContextProvider>
       }
-    </Router>
-  </Store>;
+    </RouterProvider>
+  </StoreProvider>;
