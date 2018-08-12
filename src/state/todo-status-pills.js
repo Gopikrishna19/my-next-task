@@ -1,14 +1,14 @@
 import React from 'react';
-import {BlockIconStatusCompleted} from '../components/BlockIconStatusCompleted';
-import {BlockIconStatusDefined} from '../components/BlockIconStatusDefined';
-import {BlockIconStatusInProgress} from '../components/BlockIconStatusInProgress';
-import {BlockIconStatusOnHold} from '../components/BlockIconStatusOnHold';
+import {StatusCompleted} from '../components/icons/StatusCompleted';
+import {StatusDefined} from '../components/icons/StatusDefined';
+import {StatusInProgress} from '../components/icons/StatusInProgress';
+import {StatusOnHold} from '../components/icons/StatusOnHold';
 import iconStyles from '../styles/Icons.scss';
 import {Status} from './Todos';
 
 export const statusPills = new Map([
-  [Status.defined, <BlockIconStatusDefined className={iconStyles.iconStatusDefined} key='defined'/>],
-  [Status.inProgress, <BlockIconStatusInProgress className={iconStyles.iconStatusInProgress} key='inProgress'/>],
-  [Status.onHold, <BlockIconStatusOnHold className={iconStyles.iconStatusOnHold} key='onHold'/>],
-  [Status.completed, <BlockIconStatusCompleted className={iconStyles.iconStatusCompleted} key='completed'/>]
+  [Status.defined, <StatusDefined className={iconStyles.iconStatusDefined} key='defined'/>],
+  [Status.inProgress, <StatusInProgress className={iconStyles.iconStatusInProgress} key='inProgress'/>],
+  [Status.onHold, <StatusOnHold className={iconStyles.iconStatusOnHold} key='onHold'/>],
+  [Status.completed, <StatusCompleted className={iconStyles.iconStatusCompleted} key='completed'/>]
 ]);
