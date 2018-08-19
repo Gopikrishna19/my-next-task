@@ -3,10 +3,11 @@ import React from 'react';
 import {hot} from 'react-hot-loader';
 
 const App = props =>
-  <props.component/>;
+  <props.Component {...props.props}/>;
 
 App.propTypes = {
-  component: PropTypes.any.isRequired
+  Component: PropTypes.any.isRequired,
+  props: PropTypes.object
 };
 
 export const HotApp = hot(module)(App);

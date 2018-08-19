@@ -1,7 +1,7 @@
-import {database} from '../firebase';
+import {getUser} from './user';
 
 export const getTodos = () => {
-  const todos = database().ref('api/todos');
+  const todos = getUser().child('todos');
 
   return todos.once('value')
     .then(snapshot => snapshot.val())
