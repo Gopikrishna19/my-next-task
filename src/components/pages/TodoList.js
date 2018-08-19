@@ -48,7 +48,9 @@ class $PageListTodo extends Component {
     selectionMode: false
   };
 
-  componentDidMount = () => this.props.getTodos();
+  componentDidMount = () => this.props.connectTodos();
+
+  componentWillUnmount = () => this.props.disconnectTodos();
 
   cancelSelectionModeButton = () => ({
     icon: Cancel,
@@ -174,8 +176,9 @@ class $PageListTodo extends Component {
 }
 
 $PageListTodo.propTypes = {
+  connectTodos: PropTypes.func.isRequired,
   deleteSelectedTodos: PropTypes.func.isRequired,
-  getTodos: PropTypes.func.isRequired,
+  disconnectTodos: PropTypes.func.isRequired,
   todos: PropTypes.array.isRequired,
   toggleAllTodos: PropTypes.func.isRequired,
   toggleTodo: PropTypes.func.isRequired,

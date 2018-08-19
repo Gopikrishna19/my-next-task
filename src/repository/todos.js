@@ -21,11 +21,15 @@ export const deleteTodos = (...todos) =>
     ), {})
   );
 
-export const readTodos = () =>
-  getTodos().once('value')
-    .then(snapshot => snapshot.val() || {})
-    .then(todos => Object.values(todos))
-    .catch(() => []);
+export const offTodosChange = () =>
+  getTodos().off('value');
+
+export const onTodosChange = callback =>
+  getTodos().on('value', snapshot => {
+    const todos = snapshot.val() || {};
+
+    callback(Object.values(todos));
+  });
 
 export const updateTodos = todos =>
   getTodos().update(

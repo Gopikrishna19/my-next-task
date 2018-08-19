@@ -1,14 +1,11 @@
-import {createTodo, deleteTodos, readTodos, updateTodos} from '../../repository/todos';
+import {createTodo, deleteTodos, offTodosChange, onTodosChange, updateTodos} from '../../repository/todos';
 import {Todos} from '../../state/Todos';
 import {actions} from '../actions';
 import {showToast} from './toast';
 
 export const addTodo = todo =>
   async dispatch => {
-    dispatch({
-      todo: await createTodo(todo),
-      type: actions.TODOS_ADD
-    });
+    await createTodo(todo);
 
     dispatch(showToast('Added a to do item'));
   };
@@ -17,22 +14,20 @@ export const deleteSelectedTodos = () =>
   async (dispatch, getState) => {
     const {todos} = getState();
     const todosToDelete = todos.filter(todo => todo.isSelected);
-    const remainingTodos = todos.filter(todo => !todo.isSelected);
 
     await deleteTodos(...todosToDelete);
-
-    dispatch({
-      todos: remainingTodos,
-      type: actions.TODOS_SET
-    });
   };
 
-export const getTodos = () =>
-  async dispatch =>
-    dispatch({
-      todos: await readTodos(),
+export const connectTodos = () =>
+  dispatch => onTodosChange(
+    todos => dispatch({
+      todos,
       type: actions.TODOS_SET
-    });
+    })
+  );
+
+export const disconnectTodos = () =>
+  () => offTodosChange();
 
 export const toggleAllTodos = selection => ({
   selection,
@@ -51,11 +46,6 @@ export const updateSelectedTodosStatus = status =>
     const newTodos = Todos.updateAllTodosSelection(updatedTodos, false);
 
     await updateTodos(newTodos);
-
-    dispatch({
-      todos: newTodos,
-      type: actions.TODOS_SET
-    });
   };
 
 export const updateTodoStatus = (index, status) => async (dispatch, getState) => {
@@ -63,9 +53,4 @@ export const updateTodoStatus = (index, status) => async (dispatch, getState) =>
   const newTodos = Todos.updateTodoStatus(todos, index, status);
 
   await updateTodos(newTodos);
-
-  dispatch({
-    todos: newTodos,
-    type: actions.TODOS_SET
-  });
 };
