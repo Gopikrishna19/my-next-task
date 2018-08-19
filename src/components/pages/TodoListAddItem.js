@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {defaultTodo} from '../../state/Todos';
+import {defaultTodo, Todo} from '../../state/Todos';
 import {addTodo} from '../../store/action-creators/todo';
 import animations from '../../styles/Animations.scss';
 import {backButton} from '../../utils/buttons';
@@ -17,7 +17,7 @@ class $PageListTodoAddItem extends Component {
 
   addTodo = () => {
     if (this.state.todo.task.trim()) {
-      this.props.addTodo(this.state.todo);
+      this.props.addTodo(new Todo(this.state.todo));
       this.setState({
         todo: defaultTodo.unlock()
       });

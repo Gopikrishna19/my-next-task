@@ -9,6 +9,7 @@ export const Status = t.Object({
 
 export const Todo = t.struct({
   isSelected: t.Boolean,
+  key: t.maybe(t.String),
   status: t.enums.of(Object.values(Status)),
   task: t.String
 }, 'Todo');
@@ -28,6 +29,9 @@ Todo.prototype.unlock = function () {
 };
 Todo.prototype.toggleSelection = function (selection = !this.isSelected) {
   return Todo.update(this, {isSelected: {$set: selection}});
+};
+Todo.prototype.setKey = function (key) {
+  return Todo.update(this, {key: {$set: key}});
 };
 
 Todos.addTodo = (todos, todo) => Todos.update(todos, {$unshift: [todo]});
