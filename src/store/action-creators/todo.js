@@ -1,3 +1,4 @@
+import {injectTodos} from '../../middleware/todos';
 import {createTodo, deleteTodos, offTodosChange, onTodosChange, updateTodos} from '../../repository/todos';
 import {Todos} from '../../state/Todos';
 import {actions} from '../actions';
@@ -11,12 +12,7 @@ export const addTodo = todo =>
   };
 
 export const deleteSelectedTodos = () =>
-  async (dispatch, getState) => {
-    const {todos} = getState();
-    const todosToDelete = todos.filter(todo => todo.isSelected);
-
-    await deleteTodos(...todosToDelete);
-  };
+  injectTodos(todos => deleteTodos(todos.filter(todo => todo.isSelected)));
 
 export const connectTodos = () =>
   dispatch => onTodosChange(
@@ -40,17 +36,12 @@ export const toggleTodo = index => ({
 });
 
 export const updateSelectedTodosStatus = status =>
-  async (dispatch, getState) => {
-    const {todos} = getState();
+  injectTodos(todos => {
     const updatedTodos = Todos.updateSelectedTodosStatus(todos, status);
     const newTodos = Todos.updateAllTodosSelection(updatedTodos, false);
 
-    await updateTodos(newTodos);
-  };
+    updateTodos(newTodos);
+  });
 
-export const updateTodoStatus = (index, status) => async (dispatch, getState) => {
-  const {todos} = getState();
-  const newTodos = Todos.updateTodoStatus(todos, index, status);
-
-  await updateTodos(newTodos);
-};
+export const updateTodoStatus = (index, status) =>
+  injectTodos(todos => updateTodos(Todos.updateTodoStatus(todos, index, status)));

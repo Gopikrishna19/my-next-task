@@ -1,5 +1,6 @@
 import {applyMiddleware, compose, createStore} from 'redux';
 import thunk from 'redux-thunk';
+import {todosMiddleware} from '../middleware/todos';
 import reducers from './reducers';
 
 const developmentCompose = '__REDUX_DEVTOOLS_EXTENSION_COMPOSE__';
@@ -15,7 +16,10 @@ export const getStore = () => {
     store = createStore(
       reducers,
       composeEnhancers(
-        applyMiddleware(thunk)
+        applyMiddleware(
+          thunk,
+          todosMiddleware
+        )
       )
     );
   }

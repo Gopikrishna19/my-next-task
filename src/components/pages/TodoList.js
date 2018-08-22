@@ -69,6 +69,7 @@ class $PageListTodo extends Component {
 
   exitSelectionMode = () => {
     this.setState({selectionMode: false});
+    this.props.toggleAllTodos(false);
   };
 
   getControls = () => this.state.selectionMode ? [
@@ -162,7 +163,7 @@ class $PageListTodo extends Component {
               <TodoItem
                 index={index}
                 isLongClickDisabled={this.state.selectionMode}
-                key={index}
+                key={item.key}
                 onClick={this.selectTodo(index, item)}
                 onLongClick={this.enterSelectionMode(index, item)}
                 onStatusChange={this.props.updateTodoStatus}

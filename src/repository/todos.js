@@ -13,7 +13,7 @@ export const createTodo = todo =>
       return newTodo;
     });
 
-export const deleteTodos = (...todos) =>
+export const deleteTodos = todos =>
   getTodos().update(
     todos.reduce((patch, todo) => Object.assign(
       patch,
