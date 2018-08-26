@@ -10,7 +10,7 @@ import {PageFrame} from '../blocks/PageFrame';
 import {Action} from '../buttons/Action';
 import {Cancel} from '../icons/Cancel';
 
-class $PageListTodoAddItem extends Component {
+class $TodoListAddItem extends Component {
   state = {
     todo: defaultTodo.unlock()
   };
@@ -63,11 +63,11 @@ class $PageListTodoAddItem extends Component {
   }
 }
 
-$PageListTodoAddItem.propTypes = {
+$TodoListAddItem.propTypes = {
   addTodo: PropTypes.func.isRequired
 };
 
 export const TodoListAddItem = connect(
   null,
   {addTodo}
-)($PageListTodoAddItem);
+)($TodoListAddItem);

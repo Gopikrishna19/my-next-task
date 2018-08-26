@@ -13,7 +13,7 @@ const defaultState = {
 };
 const toSecond = 1000;
 
-class $RenderToasts extends Component {
+class $Toasts extends Component {
   state = defaultState;
 
   startTimers = toast => {
@@ -50,7 +50,7 @@ class $RenderToasts extends Component {
   }
 }
 
-$RenderToasts.propTypes = {
+$Toasts.propTypes = {
   hideOldestToast: PropTypes.func.isRequired,
   toasts: PropTypes.array.isRequired
 };
@@ -58,4 +58,4 @@ $RenderToasts.propTypes = {
 export const Toasts = connect(
   state => ({toasts: state.toasts}),
   {hideOldestToast}
-)($RenderToasts);
+)($Toasts);

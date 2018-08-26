@@ -42,7 +42,7 @@ const groupTitles = {
 const groupSort = (group1, group2) => groupSortOrder.indexOf(group1) - groupSortOrder.indexOf(group2);
 const groupTitle = group => groupTitles[group];
 
-class $PageListTodo extends Component {
+class $TodoList extends Component {
   state = {
     isGrouped: true,
     selectionMode: false
@@ -176,7 +176,7 @@ class $PageListTodo extends Component {
   }
 }
 
-$PageListTodo.propTypes = {
+$TodoList.propTypes = {
   connectTodos: PropTypes.func.isRequired,
   deleteSelectedTodos: PropTypes.func.isRequired,
   disconnectTodos: PropTypes.func.isRequired,
@@ -190,4 +190,4 @@ $PageListTodo.propTypes = {
 export const TodoList = connect(
   state => ({todos: state.todos}),
   actionCreators
-)($PageListTodo);
+)($TodoList);
