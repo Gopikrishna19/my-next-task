@@ -52,11 +52,11 @@ ShoppingItems.updateSelectedShoppingItemsStatus = (items, status) => ShoppingIte
     [index]: {$merge: {status}}
   }) : query, {})
 );
-ShoppingItems.updateShoppingItemStore = (items, index, store) => ShoppingItems.update(items, {[index]: {$merge: {store}}});
-ShoppingItems.updateSelectedShoppingItemsStore = (items, store) => ShoppingItems.update(
+ShoppingItems.updateShoppingItemStoreType = (items, index, storeType) => ShoppingItems.update(items, {[index]: {$merge: {storeType}}});
+ShoppingItems.updateSelectedShoppingItemsStoreType = (items, storeType) => ShoppingItems.update(
   items,
   items.reduce((query, item, index) => item.isSelected ? ({
     ...query,
-    [index]: {$merge: {store}}
+    [index]: {$merge: {storeType}}
   }) : query, {})
 );

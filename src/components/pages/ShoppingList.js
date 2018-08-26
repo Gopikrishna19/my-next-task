@@ -33,7 +33,7 @@ const groupSortOrder = [
   StoreType.online
 ];
 const groupTitles = {
-  [StoreType.anywhere]: null,
+  [StoreType.anywhere]: 'Anywhere',
   [StoreType.american]: 'American',
   [StoreType.indian]: 'Indian',
   [StoreType.online]: 'Online'
@@ -87,28 +87,28 @@ class $ShoppingList extends Component {
       <MenuItem
         icon={StatusDefined}
         iconClassName={iconStyles.iconStatusDefined}
-        onClick={this.updateSelectedShoppingItemsStore(StoreType.anywhere)}
+        onClick={this.updateSelectedShoppingItemsStoreType(StoreType.anywhere)}
       >
         Mark as Defined
       </MenuItem>
       <MenuItem
         icon={StatusInProgress}
         iconClassName={iconStyles.iconStatusInProgress}
-        onClick={this.updateSelectedShoppingItemsStore(StoreType.american)}
+        onClick={this.updateSelectedShoppingItemsStoreType(StoreType.american)}
       >
         Mark as In Progress
       </MenuItem>
       <MenuItem
         icon={StatusOnHold}
         iconClassName={iconStyles.iconStatusOnHold}
-        onClick={this.updateSelectedShoppingItemsStore(StoreType.indian)}
+        onClick={this.updateSelectedShoppingItemsStoreType(StoreType.indian)}
       >
         Mark as On Hold
       </MenuItem>
       <MenuItem
         icon={StatusCompleted}
         iconClassName={iconStyles.iconStatusCompleted}
-        onClick={this.updateSelectedShoppingItemsStore(StoreType.online)}
+        onClick={this.updateSelectedShoppingItemsStoreType(StoreType.online)}
       >
         Mark as Completed
       </MenuItem>
@@ -136,8 +136,8 @@ class $ShoppingList extends Component {
 
   toggleGroup = () => this.setState({isGrouped: !this.state.isGrouped});
 
-  updateSelectedShoppingItemsStore = store => () => {
-    this.props.updateSelectedShoppingItemsStore(store);
+  updateSelectedShoppingItemsStoreType = storeType => () => {
+    this.props.updateSelectedShoppingItemsStoreType(storeType);
     this.exitSelectionMode();
   };
 
@@ -151,7 +151,7 @@ class $ShoppingList extends Component {
         titleNavButtonProps={this.getTitleNavButton()}
       >
         <GroupBy
-          by='store'
+          by='storeType'
           list={this.props.shoppingItems}
           shouldGroup={this.state.isGrouped}
           sort={groupSort}
@@ -183,9 +183,8 @@ $ShoppingList.propTypes = {
   shoppingItems: PropTypes.array.isRequired,
   toggleAllShoppingItems: PropTypes.func.isRequired,
   toggleShoppingItem: PropTypes.func.isRequired,
-  updateSelectedShoppingItemsStore: PropTypes.func.isRequired,
-  updateShoppingItemStatus: PropTypes.func.isRequired,
-  updateShoppingItemStore: PropTypes.func.isRequired
+  updateSelectedShoppingItemsStoreType: PropTypes.func.isRequired,
+  updateShoppingItemStatus: PropTypes.func.isRequired
 };
 
 export const ShoppingList = connect(

@@ -35,16 +35,16 @@ export const toggleShoppingItem = index => ({
   type: actions.SHOPPING_ITEMS_UPDATE_SELECTION
 });
 
-export const updateSelectedShoppingItemsStore = store =>
+export const updateSelectedShoppingItemsStoreType = storeType =>
   injectShoppingItems(shoppingItems => {
-    const updatedShoppingItems = ShoppingItems.updateSelectedShoppingItemsStore(shoppingItems, store);
+    const updatedShoppingItems = ShoppingItems.updateSelectedShoppingItemsStoreType(shoppingItems, storeType);
     const newShoppingItems = ShoppingItems.updateAllShoppingItemsSelection(updatedShoppingItems, false);
 
     updateShoppingItems(newShoppingItems);
   });
 
-export const updateShoppingItemStore = (index, store) =>
-  injectShoppingItems(shoppingItems => updateShoppingItems(ShoppingItems.updateShoppingItemStore(shoppingItems, index, store)));
+export const updateShoppingItemStoreType = (index, storeType) =>
+  injectShoppingItems(shoppingItems => updateShoppingItems(ShoppingItems.updateShoppingItemStoreType(shoppingItems, index, storeType)));
 
 export const updateSelectedShoppingItemsStatus = status =>
   injectShoppingItems(shoppingItems => {
