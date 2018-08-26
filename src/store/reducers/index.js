@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux';
-import toasts from './toasts';
 import shoppingItems from './shopping-items';
+import toasts from './toasts';
 import todos from './todos';
 import user from './user';
 

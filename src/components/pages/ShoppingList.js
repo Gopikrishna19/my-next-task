@@ -18,11 +18,11 @@ import {ShoppingItem} from '../blocks/ShoppingItem';
 import {Action} from '../buttons/Action';
 import {MenuItem} from '../buttons/MenuItem';
 import {Add} from '../icons/Add';
+import {Availability} from '../icons/Availability';
 import {Cancel} from '../icons/Cancel';
 import {Cart} from '../icons/Cart';
 import {Delete} from '../icons/Delete';
 import {Group} from '../icons/Group';
-import {Move} from '../icons/Move';
 import {SelectAll} from '../icons/SelectAll';
 import {Shop} from '../icons/Shop';
 
@@ -100,29 +100,29 @@ class $ShoppingList extends Component {
       </MenuItem>
       <MenuSplitter/>
       <MenuItem
-        icon={Move}
-        iconClassName={iconStyles.iconMove}
+        icon={Availability}
+        iconClassName={iconStyles.iconAvailability}
         onClick={this.updateSelectedShoppingItemsStoreType(StoreType.anywhere)}
       >
         Available Anywhere
       </MenuItem>
       <MenuItem
-        icon={Move}
-        iconClassName={iconStyles.iconMove}
+        icon={Availability}
+        iconClassName={iconStyles.iconAvailability}
         onClick={this.updateSelectedShoppingItemsStoreType(StoreType.american)}
       >
         Available at American Stores
       </MenuItem>
       <MenuItem
-        icon={Move}
-        iconClassName={iconStyles.iconMove}
+        icon={Availability}
+        iconClassName={iconStyles.iconAvailability}
         onClick={this.updateSelectedShoppingItemsStoreType(StoreType.indian)}
       >
         Available at Indian Stores
       </MenuItem>
       <MenuItem
-        icon={Move}
-        iconClassName={iconStyles.iconMove}
+        icon={Availability}
+        iconClassName={iconStyles.iconAvailability}
         onClick={this.updateSelectedShoppingItemsStoreType(StoreType.online)}
       >
         Available Online

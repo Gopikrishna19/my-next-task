@@ -22,7 +22,7 @@
 
 .iconCart {
   composes: icon;
-  fill: $status-completed;
+  fill: $status-bought;
 }
 
 .iconGrouped {
@@ -35,18 +35,17 @@
 
 .iconMenu {
   composes: icon;
-  fill: $card-foreground;
   margin-right: 20px;
 }
 
-.iconMove {
+.iconAvailability {
   composes: icon;
-  fill: $card-foreground;
+  fill: $status-available;
 }
 
 .iconShop {
   composes: icon;
-  fill: $status-defined;
+  fill: $status-shop;
 }
 
 .iconStatusDefined {

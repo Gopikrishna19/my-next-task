@@ -1,7 +1,7 @@
 import {applyMiddleware, compose, createStore} from 'redux';
 import thunk from 'redux-thunk';
-import {todosMiddleware} from '../middleware/todos';
 import {shoppingItemsMiddleware} from '../middleware/shopping-items';
+import {todosMiddleware} from '../middleware/todos';
 import reducers from './reducers';
 
 const developmentCompose = '__REDUX_DEVTOOLS_EXTENSION_COMPOSE__';
