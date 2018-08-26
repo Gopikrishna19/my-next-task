@@ -20,6 +20,11 @@
   fill: $card-background;
 }
 
+.iconCart {
+  composes: icon;
+  fill: $status-completed;
+}
+
 .iconGrouped {
   fill: $toggle-icon-enabled
 }
@@ -32,6 +37,16 @@
   composes: icon;
   fill: $card-foreground;
   margin-right: 20px;
+}
+
+.iconMove {
+  composes: icon;
+  fill: $card-foreground;
+}
+
+.iconShop {
+  composes: icon;
+  fill: $status-defined;
 }
 
 .iconStatusDefined {

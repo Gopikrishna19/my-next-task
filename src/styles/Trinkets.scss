@@ -1,6 +1,15 @@
+@import "variables";
+
+.menuSplitter {
+  border-bottom: 1px solid $card-border;
+  margin: $gutter 0;
+}
+
 .listSplitter {
   font-weight: bold;
   font-size: .75em;
+  font-variant: small-caps;
+  margin: $gutter-large 0 $gutter-small $gutter-large;
 }
 
 .noUserSelect {

@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {pages} from '../../state/routes';
-import {StoreType} from '../../state/ShoppingItems';
+import {Status, StoreType} from '../../state/ShoppingItems';
 import * as actionCreators from '../../store/action-creators/shopping-item';
 import animations from '../../styles/Animations.scss';
 import iconStyles from '../../styles/Icons.scss';
@@ -11,6 +11,7 @@ import styles from '../../styles/ShoppingItems.scss';
 import {backButton} from '../../utils/buttons';
 import {conditionalClassName, join} from '../../utils/class-names';
 import {GroupBy} from '../blocks/GroupBy';
+import {MenuSplitter} from '../blocks/MenuSplitter';
 import {MoreMenu} from '../blocks/MoreMenu';
 import {PageFrame} from '../blocks/PageFrame';
 import {ShoppingItem} from '../blocks/ShoppingItem';
@@ -18,13 +19,12 @@ import {Action} from '../buttons/Action';
 import {MenuItem} from '../buttons/MenuItem';
 import {Add} from '../icons/Add';
 import {Cancel} from '../icons/Cancel';
+import {Cart} from '../icons/Cart';
 import {Delete} from '../icons/Delete';
 import {Group} from '../icons/Group';
+import {Move} from '../icons/Move';
 import {SelectAll} from '../icons/SelectAll';
-import {StatusCompleted} from '../icons/StatusCompleted';
-import {StatusDefined} from '../icons/StatusDefined';
-import {StatusInProgress} from '../icons/StatusInProgress';
-import {StatusOnHold} from '../icons/StatusOnHold';
+import {Shop} from '../icons/Shop';
 
 const groupSortOrder = [
   StoreType.anywhere,
@@ -85,32 +85,47 @@ class $ShoppingList extends Component {
     />,
     <MoreMenu key='more'>
       <MenuItem
-        icon={StatusDefined}
-        iconClassName={iconStyles.iconStatusDefined}
+        icon={Shop}
+        iconClassName={iconStyles.iconShop}
+        onClick={this.updateSelectedShoppingItemsStatus(Status.shop)}
+      >
+        Mark to shop
+      </MenuItem>
+      <MenuItem
+        icon={Cart}
+        iconClassName={iconStyles.iconCart}
+        onClick={this.updateSelectedShoppingItemsStatus(Status.bought)}
+      >
+        Mark as bought
+      </MenuItem>
+      <MenuSplitter/>
+      <MenuItem
+        icon={Move}
+        iconClassName={iconStyles.iconMove}
         onClick={this.updateSelectedShoppingItemsStoreType(StoreType.anywhere)}
       >
-        Mark as Defined
+        Available Anywhere
       </MenuItem>
       <MenuItem
-        icon={StatusInProgress}
-        iconClassName={iconStyles.iconStatusInProgress}
+        icon={Move}
+        iconClassName={iconStyles.iconMove}
         onClick={this.updateSelectedShoppingItemsStoreType(StoreType.american)}
       >
-        Mark as In Progress
+        Available at American Stores
       </MenuItem>
       <MenuItem
-        icon={StatusOnHold}
-        iconClassName={iconStyles.iconStatusOnHold}
+        icon={Move}
+        iconClassName={iconStyles.iconMove}
         onClick={this.updateSelectedShoppingItemsStoreType(StoreType.indian)}
       >
-        Mark as On Hold
+        Available at Indian Stores
       </MenuItem>
       <MenuItem
-        icon={StatusCompleted}
-        iconClassName={iconStyles.iconStatusCompleted}
+        icon={Move}
+        iconClassName={iconStyles.iconMove}
         onClick={this.updateSelectedShoppingItemsStoreType(StoreType.online)}
       >
-        Mark as Completed
+        Available Online
       </MenuItem>
     </MoreMenu>
   ] : [
@@ -135,6 +150,11 @@ class $ShoppingList extends Component {
   selectShoppingItem = index => () => this.props.toggleShoppingItem(index);
 
   toggleGroup = () => this.setState({isGrouped: !this.state.isGrouped});
+
+  updateSelectedShoppingItemsStatus = status => () => {
+    this.props.updateSelectedShoppingItemsStatus(status);
+    this.exitSelectionMode();
+  };
 
   updateSelectedShoppingItemsStoreType = storeType => () => {
     this.props.updateSelectedShoppingItemsStoreType(storeType);
@@ -183,6 +203,7 @@ $ShoppingList.propTypes = {
   shoppingItems: PropTypes.array.isRequired,
   toggleAllShoppingItems: PropTypes.func.isRequired,
   toggleShoppingItem: PropTypes.func.isRequired,
+  updateSelectedShoppingItemsStatus: PropTypes.func.isRequired,
   updateSelectedShoppingItemsStoreType: PropTypes.func.isRequired,
   updateShoppingItemStatus: PropTypes.func.isRequired
 };
