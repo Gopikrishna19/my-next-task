@@ -1,0 +1,49 @@
+@import "variables";
+
+.shoppingList {
+  display: flex;
+  flex-direction: column;
+}
+
+.listSplitter {
+  display: none;
+  font-variant: small-caps;
+  margin: $gutter-large 0 $gutter-small $gutter-large;
+}
+
+.shoppingList.grouped .listSplitter {
+  display: block;
+}
+
+.shoppingItemTask {
+  margin: $gutter-small 0 $gutter-small $gutter-large;
+  padding: $gutter-large $gutter $gutter-large $gutter-large*2;
+  position: relative;
+
+  &.completed {
+    background: none;
+    box-shadow: none;
+    color: $status-completed;
+    text-decoration: line-through;
+  }
+
+  &.selected {
+    background-color: $card-foreground;
+    color: $card-background;
+  }
+}
+
+.statusToggle {
+  background-color: white;
+  border: 1px solid $card-border;
+  border-radius: 50%;
+  left: 0;
+  padding: $gutter-small;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  &.completed {
+    background-color: $body-background;
+  }
+}
