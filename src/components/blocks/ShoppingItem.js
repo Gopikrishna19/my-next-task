@@ -22,24 +22,24 @@ export const ShoppingItem = props =>
   >
     <Card
       className={join(
-        styles.shoppingItemTask,
+        styles.shoppingItem,
         conditionalClassName(props.shoppingItem.isSelected, styles.selected),
         statusClasses[props.shoppingItem.status]
       )}
     >
-      {props.shoppingItem.name}
       {
         props.isLongClickDisabled ?
           <div className={styles.statusToggle}>
-            {props.shoppingItem.isSelected ? <Selected className={iconStyles.iconCard}/> : <Shell/>}
+            {props.shoppingItem.isSelected ? <Selected className={iconStyles.iconCardInverted}/> : <Shell/>}
           </div> :
           <StatusToggle
-            className={join(styles.statusToggle, statusClasses[props.shoppingItem.status])}
+            className={join(styles.statusToggle)}
             onChange={handleStatusChange(props)}
             status={props.shoppingItem.status}
             statuses={statusPills}
           />
       }
+      {props.shoppingItem.name}
     </Card>
   </LongPress>;
 

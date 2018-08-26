@@ -15,12 +15,12 @@
   display: block;
 }
 
-.shoppingItemTask {
-  margin: $gutter-small 0 $gutter-small $gutter-large;
-  padding: $gutter-large $gutter $gutter-large $gutter-large*2;
-  position: relative;
+.shoppingItem {
+  align-items: center;
+  display: flex;
+  margin: 0;
 
-  &.completed {
+  &.bought {
     background: none;
     box-shadow: none;
     color: $status-completed;
@@ -34,16 +34,5 @@
 }
 
 .statusToggle {
-  background-color: white;
-  border: 1px solid $card-border;
-  border-radius: 50%;
-  left: 0;
   padding: $gutter-small;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-
-  &.completed {
-    background-color: $body-background;
-  }
 }

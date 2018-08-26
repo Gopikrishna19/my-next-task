@@ -15,6 +15,11 @@
   fill: $card-foreground;
 }
 
+.iconCardInverted {
+  composes: icon;
+  fill: $card-background;
+}
+
 .iconGrouped {
   fill: $toggle-icon-enabled
 }
