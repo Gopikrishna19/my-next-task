@@ -38,5 +38,10 @@
     "babel/no-invalid-this": 2,
     "react/jsx-sort-props": 2,
     "react/sort-comp": 2
+  },
+  "settings": {
+    "react": {
+      "version": "16.3"
+    }
   }
 }
