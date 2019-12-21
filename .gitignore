@@ -1,4 +1,5 @@
 *.log
+.firebase
 .idea
 node_modules
 public

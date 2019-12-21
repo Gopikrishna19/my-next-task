@@ -8,7 +8,7 @@ export const addShoppingItem = shoppingItem =>
   async dispatch => {
     await createShoppingItem(shoppingItem);
 
-    dispatch(showToast('Added a to do item'));
+    dispatch(showToast('Added a shopping item'));
   };
 
 export const deleteSelectedShoppingItems = () =>
